@@ -1,0 +1,16 @@
+
+.main {
+  @apply min-h-screen;
+}
+
+.navbar {
+  @apply h-10 bg-header bg-cover;
+}
+
+.navbar-brand {
+  @apply h-[12rem] flex flex-col md:flex-row items-center justify-evenly md:justify-between max-w-[90%] md:max-w-[85%];
+}
+
+.navbar-nav-text {
+  @apply font-robotoI text-black text-base font-bold relative after:content-[""] after:bg-triangle after:bg-contain after:bg-no-repeat after:absolute after:w-[2.7rem] after:h-[2.1rem] after:right-[-4rem] after:bottom-[.3rem];
+}

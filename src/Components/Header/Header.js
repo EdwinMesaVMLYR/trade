@@ -4,9 +4,9 @@ import logo from '../../logo.svg'
 function Header () {
   return (
     <header>
-      <div className="h-10 bg-header bg-cover">
+      <div className="navbar">
       </div>
-      <nav className='navbar-brand md:flex-row md:justify-between md:max-w-[85%]'>
+      <nav className='navbar-brand 2xl:max-w-screen-xl mx-auto'>
         <div className='navbar-logo'>
           <a href='/'>
             <figure>

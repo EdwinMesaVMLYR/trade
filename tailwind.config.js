@@ -17,9 +17,13 @@ module.exports = {
         robotoT: ['Roboto Thin'],
         robotoTI: ['Roboto Thin Italic'],
       },
+      fontSize: {
+        xs: ['1.3rem'],
+        base: ['1.6rem'],
+      },
       backgroundImage: {
-        'header': "url('../public/images/bg/bg-header.jpg')",
-        'triangle': "url('../public/images/icons/icon-triangle.svg')"
+        'header': "url('../../../public/images/bg/bg-header.jpg')",
+        'triangle': "url('../../../public/images/icons/icon-triangle.svg')"
       },
       colors: {
         transparent: 'transparent',

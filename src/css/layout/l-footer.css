@@ -1,0 +1,7 @@
+.footer-content {
+  @apply text-center py-[1rem];
+}
+
+.footer-text {
+  @apply font-robotoL text-xs;
+}
