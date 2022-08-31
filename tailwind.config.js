@@ -18,7 +18,8 @@ module.exports = {
         robotoTI: ['Roboto Thin Italic'],
       },
       backgroundImage: {
-        'header': "url('../public/images/bg/bg-header.jpg')"
+        'header': "url('../public/images/bg/bg-header.jpg')",
+        'triangle': "url('../public/images/icons/icon-triangle.svg')"
       },
       colors: {
         transparent: 'transparent',
@@ -30,6 +31,9 @@ module.exports = {
         'grayLight': '#858585',
         'red': '#C62426',
         'yellow': '#E6C71E'
+      },
+      container: {
+        center: true,
       },
     }
   },

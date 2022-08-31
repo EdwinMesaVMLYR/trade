@@ -78,6 +78,10 @@
   @apply min-h-screen;
 }
 
-.nav-brand {
-  @apply h-32 flex items-center flex-col justify-evenly;
+.navbar-brand {
+  @apply h-32 flex items-center flex-col justify-evenly container max-w-[90%];
+}
+
+.navbar-nav-text {
+  @apply text-black font-robotoI font-bold relative;
 }
