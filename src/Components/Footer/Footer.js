@@ -2,8 +2,8 @@ import React from 'react'
 
 function Footer () {
   return (
-    <footer>
-      <p>footer</p>
+    <footer className='text-center p-2.5'>
+      <p className='font-robotoL text-xs'>Catálogo | Cervecería ABInBev</p>
     </footer>
   )
 }
