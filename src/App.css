@@ -74,6 +74,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.main {
+  @apply min-h-screen;
+}
+
 .nav-brand {
   @apply h-32 flex items-center flex-col justify-evenly;
 }
