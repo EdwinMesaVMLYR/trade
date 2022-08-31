@@ -74,6 +74,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  font-size: 10px;
+}
+
 .main {
   @apply min-h-screen;
 }
@@ -83,5 +87,5 @@
 }
 
 .navbar-nav-text {
-  @apply text-black font-robotoI font-bold relative;
+  @apply text-black font-robotoI font-bold text-base relative after:content-[""] after:content-[""] after:bg-triangle after:bg-contain after:bg-no-repeat after:absolute after:w-7 after:h-5 after:right-[-2.5rem];
 }

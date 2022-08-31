@@ -15,9 +15,9 @@ function Header () {
           </a>
         </div>
         <div className='navbar-nav'>
-          <span className='navbar-nav-text after:content-[""] after:bg-triangle after:bg-contain after:bg-no-repeat after:absolute after:w-7 after:h-5 after:right-[-2.5rem]'>
+          <a className='navbar-nav-text' href='/'>
           PIRÁMIDE DE PRECIOS
-          </span>
+          </a>
         </div>
       </nav>
     </header>
