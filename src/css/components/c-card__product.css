@@ -1,0 +1,35 @@
+.card-product {
+  @apply flex flex-col items-center justify-center w-full md:w-[22%];
+}
+
+.card-product--logo {
+  @apply w-[12rem];
+}
+
+.card-product--body {
+  @apply w-full;
+}
+
+.card-product--info {
+  @apply flex flex-col items-start relative after:content-[""] after:block after:absolute after:bg-yellow after:w-full after:h-[.2rem] after:bottom-[-.5rem] md:h-[5rem] md:items-center md:flex-row md:justify-between md:after:bottom-[0];
+}
+
+.card-product--info__title {
+  @apply font-robotoI font-bold text-lg text-gray;
+}
+
+.card-product--info__alc {
+  @apply font-robotoI font-medium text-base text-red;
+}
+
+.card-product--size {
+  @apply flex items-center relative h-[5rem] after:block after:absolute after:bg-yellow after:w-full after:h-[.2rem] after:bottom-[.5rem];
+}
+
+.card-product--size__text {
+  @apply font-robotoI font-bold text-lg text-gray;
+}
+
+.card-product--description__text {
+  @apply font-robotoI font-medium text-xs text-gray;
+}

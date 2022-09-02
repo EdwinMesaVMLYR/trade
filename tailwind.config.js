@@ -20,6 +20,7 @@ module.exports = {
       fontSize: {
         xs: ['1.3rem'],
         base: ['1.6rem'],
+        lg: ['1.9rem'],
       },
       backgroundImage: {
         'header': "url('../../../public/images/bg/bg-header.jpg')",
