@@ -5,9 +5,6 @@ import { useReadCsv } from '../../Hooks/'
 
 function Card () {
   const products = useReadCsv('SPMK')
-  console.log(products, 'product')
-  console.log(products[0], 'product')
-  console.log(products[0].length, 'product')
   return (
     <div className='filter-content 2xl:max-w-screen-xl mx-auto'>
       <div className='filter-content--header'>
@@ -19,22 +16,18 @@ function Card () {
         </div>
         <div className='filter-content--filter'>
           <select name="select">
-            <option value="value1">Value 1</option>
-            <option value="value2" selected>Value 2</option>
-            <option value="value3">Value 3</option>
+              {products.map((cat, i) => (
+                <option value={cat.marca} key={cat.id}>{cat.marca}</option>
+              ))}
           </select>
         </div>
       </div>
-      <div className='filter-content--card'>
-        <CardItems />
-        <CardItems />
-        <CardItems />
-        <CardItems />
-      </div>
       <h2>Catalogo</h2>
-      {products.map((article, i) => (
-        <CardItems {...article} key={i}></CardItems>
-      ))}
+      <div className='filter-content--card'>
+        {products.map((article, i) => (
+          <CardItems {...article} key={i}></CardItems>
+        ))}
+      </div>
     </div>
   )
 }

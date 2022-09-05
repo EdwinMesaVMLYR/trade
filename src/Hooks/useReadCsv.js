@@ -1,52 +1,46 @@
+import { useState } from 'react'
 import { usePapaParse } from 'react-papaparse'
-
-const info = {
-  data: [
-    {
-      id: '1',
-      marca: 'Baltica',
-      formato: 'LATA',
-      tamano: '473',
-      descripcion: 'BALTICA LATA 473 X6',
-      grados: '5',
-      eanintermedio: '8',
-      cajas_pallet: '7802130001727',
-      urlimagen: '100',
-      __parsed_extra: [
-        'https://res.cloudinary.com/dkktirn06/image/upload/v1657830410/LOW%20RES%20SPMK%20CATALOG/BALTICA%20LATA%20473%20X6.png'
-      ]
-    },
-    {
-      id: '2',
-      marca: 'perreo',
-      formato: 'LATA',
-      tamano: '473',
-      descripcion: 'BALTICA LATA 473 X6',
-      grados: '5',
-      eanintermedio: '8',
-      cajas_pallet: '7802130001727',
-      urlimagen: '100',
-      __parsed_extra: [
-        'https://res.cloudinary.com/dkktirn06/image/upload/v1657830410/LOW%20RES%20SPMK%20CATALOG/BALTICA%20LATA%20473%20X6.png'
-      ]
-    }
-  ]
-}
 
 export function useReadCsv (nameFile) {
   const { readRemoteFile } = usePapaParse()
-  var csvData = []
-  readRemoteFile('https://dev-site-andrespereira.pantheonsite.io/sites/default/files/2022-09/SPMK.csv', {
-    header: true,
-    dynamicTyping: true,
-    step: function (result) {
-      csvData.push(result.data)
-    },
-    complete: function (results) {
-      console.log(results)
-    }
-  })
-  console.log(csvData, 'csvData')
-  console.log(info, 'info')
-  return csvData
+  // State to store parsed data
+  const [parsedData, setParsedData] = useState([])
+
+  // State to store table Column name
+  // const [tableRows, setTableRows] = useState([])
+
+  // State to store the values
+  // const [values, setValues] = useState([])
+
+  // readRemoteFile('https://dev-site-andrespereira.pantheonsite.io/sites/default/files/2022-09/SPMK.csv', {
+  const changeHandler = (event) => {
+    // Passing file data (event.target.files[0]) to parse using Papa.parse
+    readRemoteFile('https://dev-site-andrespereira.pantheonsite.io/sites/default/files/2022-09/SPMKcomas_1.csv', {
+      header: true,
+      skipEmptyLines: true,
+      delimiter: ';',
+      complete: function (results) {
+        // const rowsArray = []
+        const valuesArray = []
+
+        // Iterating data to get column name and their values
+        results.data.map((d) => (
+          // rowsArray.push(Object.keys(d)),
+          valuesArray.push(Object.values(d))
+        ))
+
+        // Parsed Data Response in array format
+        setParsedData(results.data)
+
+        // Filtered Column Names
+        // setTableRows(rowsArray[0])
+
+        // Filtered Values
+        // setValues(valuesArray)
+      }
+    })
+  }
+  changeHandler()
+  console.log(parsedData)
+  return parsedData
 }
