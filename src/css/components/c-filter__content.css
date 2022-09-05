@@ -1,0 +1,19 @@
+.filter-content {
+  @apply max-w-[85%];
+}
+
+.filter-content--header {
+  @apply text-center my-[3rem];
+}
+
+.filter-content--header__image {
+  @apply flex justify-center;
+}
+
+.filter-content--header__title--text {
+  @apply font-robotoBI text-[3rem] text-gray;
+}
+
+.filter-content--card {
+  @apply flex flex-col flex-wrap justify-between my-[7rem] w-full md:flex-row md:gap-[3rem];
+}

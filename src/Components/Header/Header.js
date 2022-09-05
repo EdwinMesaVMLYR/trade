@@ -3,7 +3,7 @@ import logo from '../../logo.svg'
 
 function Header () {
   return (
-    <header>
+    <header className='header'>
       <div className="navbar">
       </div>
       <nav className='navbar-brand 2xl:max-w-screen-xl mx-auto'>

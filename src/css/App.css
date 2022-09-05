@@ -2,6 +2,7 @@
 @import "./base/base.css";
 
 @import "tailwindcss/components";
+@import "./components/components.css";
 @import "./layout/layout.css";
 
 @import "tailwindcss/utilities";
