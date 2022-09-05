@@ -3,17 +3,19 @@ import CardItems from './CardItems/CardItems'
 import { useReadCsv } from '../../Hooks/'
 
 function Card () {
-  const data = useReadCsv(3)
-  console.log(data, 'csvData')
+  const products = useReadCsv('SPMK')
+  console.log(products, 'product')
+  console.log(products[0], 'product')
+  console.log(products[0].length, 'product')
   return (
     <div>
       <div className='image'>
         <img src="image aca" alt="image aca"/>
       </div>
       <h2>Catalogo</h2>
-      <CardItems />
-      <CardItems />
-      <CardItems />
+      {products.map((article, i) => (
+        <CardItems {...article} key={i}></CardItems>
+      ))}
     </div>
   )
 }
