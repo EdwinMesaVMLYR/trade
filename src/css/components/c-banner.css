@@ -1,5 +1,5 @@
 .banner {
-  @apply bg-bannerBrands bg-cover flex items-center justify-center relative md:min-h-[65rem];
+  @apply md:bg-bannerBrands bg-cover flex items-center justify-center relative md:min-h-[65rem];
 }
 .banner--content {
   @apply flex items-center flex-col md:flex-row w-full md:min-h-[65rem] md:after:content-[""] md:after:absolute md:after:block md:after:bg-whiteb md:after:w-[50%] md:after:h-[100%] md:after:rounded-tl-[3rem] md:after:rounded-bl-[3rem] md:after:right-[0] md:after:z-[0] md:after:opacity-60;
@@ -14,5 +14,5 @@
 }
 
 .banner--content__left {
-  @apply flex justify-center items-center w-full;
+  @apply bg-bannerBrands bg-cover flex justify-center items-center w-full p-[10%] pb-[20%] md:bg-none md:p-[initial] md:pb-[initial];
 }

@@ -1,9 +1,9 @@
 .card--banner {
-  @apply w-full md:max-w-[50rem] mx-auto;
+  @apply w-[92%] mx-auto relative top-[-3rem] md:max-w-[50rem] md:w-full md:top-[initial];
 }
 
 .card--banner__header {
-  @apply bg-blue px-[1.8rem] py-[1rem] rounded-tl-[1.5rem] rounded-tr-[1.5rem];
+  @apply bg-blue px-[2rem] py-[1.6rem] rounded-tl-[1.5rem] rounded-tr-[1.5rem];
 }
 
 .card--banner__header--info--text {
@@ -11,7 +11,7 @@
 }
 
 .card--banner__header--detail--text {
-  @apply font-robotoM text-[2.5rem];
+  @apply font-robotoM text-[3rem] leading-[1.2] md:text-[2.5rem];
 }
 
 .card--banner__header--detail--text {
@@ -19,7 +19,7 @@
 }
 
 .card--banner__body {
-  @apply bg-white px-[1.8rem] py-[1.5rem] rounded-bl-[1.5rem] rounded-br-[1.5rem] shadow-1x2;
+  @apply bg-white px-[3rem] py-[2rem] rounded-bl-[1.5rem] rounded-br-[1.5rem] shadow-1x2 md:px-[1.8rem];
 }
 
 .card--banner__body--info--text {
@@ -27,11 +27,11 @@
 }
 
 .card--banner__body--details {
-  @apply flex flex-col items-center md:flex-row md:justify-around mt-[.7rem] mb-[1.4rem];
+  @apply flex flex-col md:items-center md:flex-row md:justify-around mt-[.7rem] mb-[1.4rem];
 }
 
 .card--banner__body--details--left {
-  @apply w-full max-w-[10rem]
+  @apply w-full md:max-w-[10rem]
 }
 
 .card--banner__body--dl--points {
@@ -39,7 +39,7 @@
 }
 
 .card--banner__body--dl--desc {
-  @apply font-robotoB text-xs opacity-70 text-gray leading-[1];
+  @apply font-robotoB text-base opacity-70 text-gray leading-[1] md:text-xs;
 }
 
 .card--banner__body--details--center {
