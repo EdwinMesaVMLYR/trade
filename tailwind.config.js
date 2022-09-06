@@ -24,12 +24,14 @@ module.exports = {
       },
       backgroundImage: {
         'header': "url('../../../public/images/bg/bg-header.jpg')",
+        'bannerBrands': "url('../../../public/images/bg/bg-brands.jpg')",
         'triangle': "url('../../../public/images/icons/icon-triangle.svg')"
       },
       colors: {
         transparent: 'transparent',
         'black': '#000000',
         'white': '#ffffff',
+        'whiteb': '#D9D9D9',
         'back': '#D9D9D9',
         'blue': '#0C458A',
         'gray': '#484748',
@@ -40,6 +42,9 @@ module.exports = {
       container: {
         center: true,
       },
+      boxShadow: {
+        '1x2': '0px 4px 4px rgba(0, 0, 0, 0.25)',
+      }
     }
   },
   plugins: []

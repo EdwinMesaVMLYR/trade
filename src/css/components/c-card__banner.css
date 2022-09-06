@@ -1,0 +1,59 @@
+.card--banner {
+  @apply w-[92%] mx-auto relative top-[-3rem] md:max-w-[50rem] md:w-full md:top-[initial];
+}
+
+.card--banner__header {
+  @apply bg-blue px-[2rem] py-[1.6rem] rounded-tl-[1.5rem] rounded-tr-[1.5rem];
+}
+
+.card--banner__header--info--text {
+  @apply text-white text-base tracking-widest font-robotoI font-bold opacity-40;
+}
+
+.card--banner__header--detail--text {
+  @apply font-robotoM text-[3rem] leading-[1.2] md:text-[2.5rem];
+}
+
+.card--banner__header--detail--text {
+  @apply text-white;
+}
+
+.card--banner__body {
+  @apply bg-white px-[3rem] py-[2rem] rounded-bl-[1.5rem] rounded-br-[1.5rem] shadow-1x2 md:px-[1.8rem];
+}
+
+.card--banner__body--info--text {
+  @apply text-blue text-base font-robotoB;
+}
+
+.card--banner__body--details {
+  @apply flex flex-col md:items-center md:flex-row md:justify-around mt-[.7rem] mb-[1.4rem];
+}
+
+.card--banner__body--details--left {
+  @apply w-full md:max-w-[10rem]
+}
+
+.card--banner__body--dl--points {
+  @apply font-robotoB opacity-70 text-gray text-[3.5rem] leading-[1]; 
+}
+
+.card--banner__body--dl--desc {
+  @apply font-robotoB text-base opacity-70 text-gray leading-[1] md:text-xs;
+}
+
+.card--banner__body--details--center {
+  @apply flex flex-col
+}
+
+.card--banner__body--dc-data {
+  @apply font-robotoB text-base opacity-70 text-gray my-[.5rem];;
+}
+
+.card--banner__body--details--right {
+  @apply flex flex-col
+}
+
+.card--banner__body--dr-data {
+  @apply font-robotoB text-base opacity-70 text-gray my-[.5rem];
+}

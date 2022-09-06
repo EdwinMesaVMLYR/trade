@@ -14,7 +14,6 @@ function CardItems ({ marca, size, grados, url, cajaporpallet, descripcion }) {
       <div className='card-product--body'>
         <div className='card-product--info'>
           <p className='card-product--info__title'>{descripcion}</p>
-          {marca}
           <p className='card-product--info__alc'>{grados}%</p>
         </div>
         <div className='card-product--size'>

@@ -1,9 +1,17 @@
 .card-product {
-  @apply flex flex-col items-center justify-center w-full md:w-[22%];
+  @apply flex flex-col items-center justify-center mb-[3rem] w-full md:w-[22%];
 }
 
 .card-product--logo {
-  @apply w-[12rem];
+  @apply w-[10rem];
+}
+
+.card-product--image {
+  @apply flex items-center justify-center md:md:w-[28.2rem] h-[28.2rem];
+}
+
+.card-product--image__image {
+  @apply w-[70%] transition-all transform hover:-translate-y-1 hover:scale-110 to-transparent bg-gradient-to-r;
 }
 
 .card-product--body {
@@ -11,11 +19,11 @@
 }
 
 .card-product--info {
-  @apply flex flex-col items-start relative after:content-[""] after:block after:absolute after:bg-yellow after:w-full after:h-[.2rem] after:bottom-[-.5rem] md:h-[5rem] md:items-center md:flex-row md:justify-between md:after:bottom-[0];
+  @apply flex flex-col items-start leading-[1.2] relative after:content-[""] after:block after:absolute after:bg-yellow after:w-full after:h-[.2rem] after:bottom-[-.5rem] md:h-[6rem] md:items-center md:flex-row md:justify-between md:after:bottom-[0];
 }
 
 .card-product--info__title {
-  @apply font-robotoI font-bold text-lg text-gray;
+  @apply font-robotoI font-bold text-lg text-gray md:w-[80%];
 }
 
 .card-product--info__alc {
