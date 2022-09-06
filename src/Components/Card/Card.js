@@ -6,6 +6,9 @@ import { useReadCsv } from '../../Hooks/'
 
 function Card () {
   const products = useReadCsv('SPMK')
+  const productsInfo = []
+  products.map((cat) => productsInfo.push(cat.marca))
+  const productsMarca = [...new Set(productsInfo)]
   return (
     <>
     <Banner/>
@@ -19,9 +22,7 @@ function Card () {
         </div>
         <div className='filter-content--filter'>
           <select name="select">
-            {products.map((cat, i) => (
-              <option value={cat.marca} key={cat.id}>{cat.marca}</option>
-            ))}
+            {productsMarca.map((cat, i) => <option value={cat} key={i}>{cat}</option>)}
           </select>
         </div>
       </div>
