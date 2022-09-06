@@ -2,11 +2,13 @@ import React, { useState } from 'react'
 import imgecatalogo from '../../images/catalogo.svg'
 import { Banner } from '../../Components/index'
 import CardItems from './CardItems/CardItems'
-import { userReadXlsx } from '../../Hooks/'
+import { userReadXlsx, userReadBannerXlsx } from '../../Hooks/'
 
 function Card () {
   const products = userReadXlsx()
   const [selected, setSelected] = useState({})
+  const banner = userReadBannerXlsx(setSelected)
+  console.log(banner)
 
   const handleChange = event => {
     console.log(event.target.value)
@@ -33,6 +35,7 @@ function Card () {
         </div>
       </div>
       <div className='filter-content--card'>
+        {setSelected}
         {products.map((article, i) => (
           <CardItems {...article} key={i}></CardItems>
         ))}
