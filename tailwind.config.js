@@ -41,6 +41,9 @@ module.exports = {
       container: {
         center: true,
       },
+      boxShadow: {
+        '1x2': '0px 4px 4px rgba(0, 0, 0, 0.25)',
+      }
     }
   },
   plugins: []
