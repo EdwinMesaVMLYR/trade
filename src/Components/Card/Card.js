@@ -6,6 +6,9 @@ import { userReadXlsx, userReadBannerXlsx } from '../../Hooks/'
 
 function Card () {
   const products = userReadXlsx()
+  const productsInfo = []
+  products.map((cat) => productsInfo.push(cat.marca))
+  const productsMarca = [...new Set(productsInfo)]
   const [selected, setSelected] = useState({})
   const banner = userReadBannerXlsx(setSelected)
   console.log(banner)
@@ -14,7 +17,6 @@ function Card () {
     console.log(event.target.value)
     setSelected(event.target.value)
   }
-
   return (
     <>
     <Banner/>
@@ -28,9 +30,7 @@ function Card () {
         </div>
         <div className='filter-content--filter'>
           <select name="select" value={selected} onChange={handleChange}>
-            {products.map((cat, i) => (
-              <option value={cat.marca} key={i}>{cat.marca}</option>
-            ))}
+            {productsMarca.map((cat, i) => <option value={cat} key={i}>{cat}</option>)}
           </select>
         </div>
       </div>
