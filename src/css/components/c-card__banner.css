@@ -1,5 +1,5 @@
 .card--banner {
-  @apply w-full md:max-w-[50rem];
+  @apply w-full md:max-w-[50rem] mx-auto;
 }
 
 .card--banner__header {

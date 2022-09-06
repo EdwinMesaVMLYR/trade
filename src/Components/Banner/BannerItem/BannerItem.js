@@ -6,10 +6,10 @@ function BannerItem () {
     <>
       <div className='banner 2xl:max-w-screen-2xl mx-auto'>
         <div className='banner--content'>
-          <div className='banner--content__right'>
+          <div className='banner--content__left'>
             <img src={imageBottleBanner} alt="image aca" className='banner--content__right--image' />
           </div>
-          <div className='banner--content__left'>
+          <div className='banner--content__right'>
             <div className='card--banner'>
               <div className='card--banner__header'>
                 <div className='card--banner__header--info'>
