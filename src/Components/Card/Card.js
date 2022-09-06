@@ -10,16 +10,17 @@ function Card () {
   products.map((cat) => productsInfo.push(cat.marca))
   const productsMarca = [...new Set(productsInfo)]
   const [selected, setSelected] = useState({})
-  const banner = userReadBannerXlsx(setSelected)
-  console.log(banner)
+  const [bannerItem, setBannerItem] = useState({})
+  const banners = userReadBannerXlsx(setSelected)
 
   const handleChange = event => {
-    console.log(event.target.value)
     setSelected(event.target.value)
+    const banner = banners.filter((e) => e.Marca === event.target.value)
+    setBannerItem(banner[0])
   }
   return (
     <>
-    <Banner/>
+    <Banner bannerItem={bannerItem}/>
     <div className='filter-content 2xl:max-w-screen-xl mx-auto'>
       <div className='filter-content--header'>
         <div className='filter-content--header__image'>

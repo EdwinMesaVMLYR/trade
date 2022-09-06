@@ -15,13 +15,5 @@ export function userReadXlsx () {
       setPres(data) // update state
     })()
   }, [])
-
-  /* get state data and export to XLSX */
-  /*  const exportFile = useCallback(() => {
-    const ws = utils.json_to_sheet(pres)
-    const wb = utils.book_new()
-    utils.book_append_sheet(wb, ws, 'Data')
-    writeFileXLSX(wb, 'SheetJSReactAoO.xlsx')
-  }, [pres]) */
   return pres
 }

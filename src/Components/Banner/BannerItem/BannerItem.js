@@ -1,7 +1,9 @@
 import React from 'react'
+import { string } from 'prop-types'
 import imageBottleBanner from '../../../images/bottle-banner.png'
 
-function BannerItem () {
+function BannerItem ({ bannerItem }) {
+  const { ABV } = bannerItem
   return (
     <>
       <div className='banner 2xl:max-w-screen-2xl mx-auto'>
@@ -26,7 +28,7 @@ function BannerItem () {
                 <div className='card--banner__body--details'>
                   <div className='card--banner__body--details--left'>
                     <h3 className='card--banner__body--dl--points'>
-                      6.9
+                      {ABV}
                     </h3>
                     <span className='card--banner__body--dl--desc'>
                       PUNTOS DEL MERCADO
@@ -38,7 +40,7 @@ function BannerItem () {
                     <span className='card--banner__body--dc-data'>Origen: México</span>
                   </div>
                   <div className='card--banner__body--details--right'>
-                    <span className='card--banner__body--dr-data'>ABV: 4.5°</span>
+                    <span className='card--banner__body--dr-data'>ABV: {ABV}</span>
                     <span className='card--banner__body--dr-data'>Ritual: Lima</span>
                     <span className='card--banner__body--dr-data'>IBU: 19</span>
                   </div>
@@ -50,6 +52,10 @@ function BannerItem () {
       </div>
     </>
   )
+}
+
+BannerItem.propTypes = {
+  bannerItem: string.isRequired
 }
 
 export default BannerItem
