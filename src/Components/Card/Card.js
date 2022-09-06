@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import imgecatalogo from '../../images/catalogo.svg'
 import { Banner } from '../../Components/index'
 import CardItems from './CardItems/CardItems'
@@ -6,6 +6,13 @@ import { userReadXlsx } from '../../Hooks/'
 
 function Card () {
   const products = userReadXlsx()
+  const [selected, setSelected] = useState({})
+
+  const handleChange = event => {
+    console.log(event.target.value)
+    setSelected(event.target.value)
+  }
+
   return (
     <>
     <Banner/>
@@ -18,9 +25,9 @@ function Card () {
           <h2 className='filter-content--header__title--text'>SPMK</h2>
         </div>
         <div className='filter-content--filter'>
-          <select name="select">
+          <select name="select" value={selected} onChange={handleChange}>
             {products.map((cat, i) => (
-              <option value={cat.marca} key={cat.id}>{cat.marca}</option>
+              <option value={cat.marca} key={i}>{cat.marca}</option>
             ))}
           </select>
         </div>
