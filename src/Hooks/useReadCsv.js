@@ -15,6 +15,7 @@ export function useReadCsv (nameFile) {
   // readRemoteFile('https://dev-site-andrespereira.pantheonsite.io/sites/default/files/2022-09/SPMK.csv', {
   const changeHandler = (event) => {
     // Passing file data (event.target.files[0]) to parse using Papa.parse
+    // https://dev-site-andrespereira.pantheonsite.io/sites/default/files/2022-09/usuarios%20catalogo%20spmk.xlsx
     readRemoteFile('https://dev-site-andrespereira.pantheonsite.io/sites/default/files/2022-09/SPMKcomas_1.csv', {
       header: true,
       skipEmptyLines: true,
@@ -41,6 +42,5 @@ export function useReadCsv (nameFile) {
     })
   }
   changeHandler()
-  console.log(parsedData)
   return parsedData
 }

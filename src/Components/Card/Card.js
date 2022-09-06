@@ -1,10 +1,10 @@
 import React from 'react'
 import imgecatalogo from '../../images/catalogo.svg'
 import CardItems from './CardItems/CardItems'
-import { useReadCsv } from '../../Hooks/'
+import { userReadXlsx } from '../../Hooks/'
 
 function Card () {
-  const products = useReadCsv('SPMK')
+  const products = userReadXlsx()
   return (
     <div className='filter-content 2xl:max-w-screen-xl mx-auto'>
       <div className='filter-content--header'>
