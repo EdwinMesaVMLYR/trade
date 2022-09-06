@@ -2,7 +2,7 @@ import React from 'react'
 import { string } from 'prop-types'
 import logoc from '../../../images/logoc.png'
 
-function CardItems ({ marca, tamano, grados, imagen, cajasPallet, descripcion }) {
+function CardItems ({ size, grados, imagen, cajasPallet, descripcion }) {
   return (
     <div className='card-product'>
       <div className='card-product--logo'>
@@ -14,11 +14,10 @@ function CardItems ({ marca, tamano, grados, imagen, cajasPallet, descripcion })
       <div className='card-product--body'>
         <div className='card-product--info'>
           <p className='card-product--info__title'>{descripcion}</p>
-          {marca}
           <p className='card-product--info__alc'>{grados}%</p>
         </div>
         <div className='card-product--size'>
-          <p className='card-product--size__text'>{tamano}</p>
+          <p className='card-product--size__text'>{size}</p>
         </div>
         <div className='card-product--description'>
           <p className='card-product--description__text'>Cajas por pallet {cajasPallet}</p>
@@ -33,8 +32,7 @@ CardItems.defaultProps = {
 }
 
 CardItems.propTypes = {
-  marca: string.isRequired,
-  tamano: string.isRequired,
+  size: string.isRequired,
   grados: string.isRequired,
   imagen: string.isRequired,
   cajasPallet: string.isRequired,

@@ -41,6 +41,6 @@ export function useReadCsv (nameFile) {
     })
   }
   changeHandler()
-  console.log(parsedData)
+  // console.log(parsedData)
   return parsedData
 }
