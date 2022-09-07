@@ -15,7 +15,7 @@ function Card () {
 
   const handleChange = event => {
     setSelected(event.target.value)
-    const banner = banners.filter((e) => e.Marca === event.target.value)
+    const banner = banners.filter((e) => e.marca === event.target.value)
     setBannerItem(banner[0])
   }
   return (
