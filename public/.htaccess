@@ -1,0 +1,31 @@
+  RewriteEngine On  
+  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
+  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
+  RewriteRule ^ - [L]
+
+  RewriteRule ^ /index.html [L]
+ErrorDocument 404 /not-found.html
+Options -Indexes
+
+# X-XSS-Protection
+# Security Headers
+<IfModule mod_headers.c>
+	Header set X-XSS-Protection "1; mode=block"
+	Header set X-Frame-Options "SAMEORIGIN"
+	Header set X-Content-Type-Options "nosniff"
+	Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains"
+	# Header set Content-Security-Policy ...
+	#Header set Referrer-Policy "same-origin"
+  	#Header set Feature-Policy "geolocation 'self'; vibrate 'none'"
+       #Header set Content-Security-Policy "default-src 'self'; script-src 'self'   ;"
+        Header always set Permissions-Policy "geolocation=(); midi=();notifications=();push=();sync-xhr=();accelerometer=(); gyroscope=(); magnetometer=(); payment=(); camera=(); microphone=();usb=(); xr=();speaker=(self);vibrate=();fullscreen=(self);"  
+        # Feature-Policy
+    Header set Feature-Policy "microphone 'none'"
+    # Referrer-Policy
+    Header set Referrer-Policy "same-origin"
+    # Content-Security-Policy   
+   # Header set Content-Security-Policy "script-src 'unsafe-eval' 'unsafe-inline' https://tagmanager.google.com/ https://www.googletagmanager.com/"
+
+    # X-XSS-Protection
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>
