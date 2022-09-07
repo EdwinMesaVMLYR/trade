@@ -1,8 +1,8 @@
 import React from 'react'
-import { string } from 'prop-types'
+import { number, string } from 'prop-types'
 import logoc from '../../../images/logoc.png'
 
-function CardItems ({ marca, size, grados, url, cajaporpallet, descripcion }) {
+function CardItems ({ size, grados, url, cajaporpallet, descripcion }) {
   return (
     <div className='card-product'>
       <div className='card-product--logo'>
@@ -27,16 +27,12 @@ function CardItems ({ marca, size, grados, url, cajaporpallet, descripcion }) {
   )
 }
 
-CardItems.defaultProps = {
-  marca: ''
-}
-
 CardItems.propTypes = {
   marca: string.isRequired,
-  size: string.isRequired,
-  grados: string.isRequired,
+  size: string,
+  grados: number.isRequired,
   url: string,
-  cajaporpallet: string.isRequired,
+  cajaporpallet: string,
   descripcion: string.isRequired
 }
 

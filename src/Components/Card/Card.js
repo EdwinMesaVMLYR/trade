@@ -10,17 +10,22 @@ function Card () {
   products.map((cat) => productsInfo.push(cat.marca))
   const productsMarca = [...new Set(productsInfo)]
   const [selected, setSelected] = useState({})
+  const [product, setProduct] = useState({})
   const [bannerItem, setBannerItem] = useState({})
+  const [isLoading, setIsLoading] = useState(false)
   const banners = userReadBannerXlsx(setSelected)
 
   const handleChange = event => {
     setSelected(event.target.value)
     const banner = banners.filter((e) => e.marca === event.target.value)
+    const product = products.filter((e) => e.marca === event.target.value)
+    setProduct(product)
     setBannerItem(banner[0])
+    setIsLoading(true)
   }
   return (
     <>
-    <Banner bannerItem={bannerItem}/>
+    {isLoading ? <Banner bannerItem={bannerItem}/> : null}
     <div className='filter-content 2xl:max-w-screen-xl mx-auto'>
       <div className='filter-content--header'>
         <div className='filter-content--header__image'>
@@ -37,9 +42,13 @@ function Card () {
       </div>
       <div className='filter-content--card'>
         {setSelected}
-        {products.map((article, i) => (
-          <CardItems {...article} key={i}></CardItems>
-        ))}
+        {isLoading === false
+          ? products.map((article, i) => (
+              <CardItems {...article} key={i}></CardItems>
+          ))
+          : product.map((article, i) => (
+            <CardItems {...article} key={i}></CardItems>
+          ))}
       </div>
     </div></>
   )
