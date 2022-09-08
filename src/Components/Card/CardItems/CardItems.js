@@ -2,7 +2,7 @@ import React from 'react'
 import { number, string } from 'prop-types'
 import logoc from '../../../images/logoc.png'
 
-function CardItems ({ size, grados, url, cajaporpallet, descripcion }) {
+function CardItems ({ size, descripcion, grados, cajaporpallet, url }) {
   return (
     <div className='card-product'>
       <div className='card-product--logo'>
@@ -14,10 +14,13 @@ function CardItems ({ size, grados, url, cajaporpallet, descripcion }) {
       <div className='card-product--body'>
         <div className='card-product--info'>
           <p className='card-product--info__title'>{descripcion}</p>
-          <p className='card-product--info__alc'>{grados}%</p>
+          <p className='card-product--info__alc'>{grados} Alc</p>
         </div>
         <div className='card-product--size'>
-          <p className='card-product--size__text'>{size}</p>
+          {size === 'LITRO'
+            ? <p className='card-product--size__text'>LITRO</p>
+            : <p className='card-product--size__text'>{size} cc</p>
+          }
         </div>
         <div className='card-product--description'>
           <p className='card-product--description__text'>Cajas por pallet {cajaporpallet}</p>
@@ -30,10 +33,10 @@ function CardItems ({ size, grados, url, cajaporpallet, descripcion }) {
 CardItems.propTypes = {
   marca: string.isRequired,
   size: string,
+  descripcion: string.isRequired,
   grados: number.isRequired,
-  url: string,
   cajaporpallet: string,
-  descripcion: string.isRequired
+  url: string
 }
 
 export default CardItems
