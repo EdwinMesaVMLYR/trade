@@ -23,7 +23,7 @@ function CardItems ({ size, descripcion, grados, cajaporpallet, url }) {
           }
         </div>
         <div className='card-product--description'>
-          <p className='card-product--description__text'>Cajas por pallet {cajaporpallet}</p>
+          <p className='card-product--description__text'>{cajaporpallet} cajas por pallet</p>
         </div>
       </div>
     </div>

@@ -35,8 +35,8 @@ function Card () {
           <h2 className='filter-content--header__title--text'>SPMK</h2>
         </div>
         <div className='filter-content--filter'>
-          <select name="select" value={selected} onChange={handleChange}>
-            {productsMarca.map((cat, i) => <option value={cat} key={i}>{cat}</option>)}
+          <select className='filter-content--filter__select' name="select" value={selected} onChange={handleChange}>
+            {productsMarca.map((cat, i) => <option className='filter-content--filter__option' value={cat} key={i}>{cat}</option>)}
           </select>
         </div>
       </div>

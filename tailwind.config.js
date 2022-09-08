@@ -25,7 +25,8 @@ module.exports = {
       backgroundImage: {
         'header': "url('../../../public/images/bg/bg-header.jpg')",
         'bannerBrands': "url('../../../public/images/bg/bg-brands.jpg')",
-        'triangle': "url('../../../public/images/icons/icon-triangle.svg')"
+        'triangle': "url('../../../public/images/icons/icon-triangle.svg')",
+        'arrowDown': "url('../../../public/images/icons/icon-arrow-down.svg')"
       },
       colors: {
         transparent: 'transparent',
