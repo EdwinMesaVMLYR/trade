@@ -3,6 +3,7 @@ import imgecatalogo from '../../images/catalogo.svg'
 import { Banner } from '../../Components/index'
 import CardItems from './CardItems/CardItems'
 import { userReadXlsx, userReadBannerXlsx } from '../../Hooks/'
+// import { removeCaptitalSpace } from '../../utils/'
 
 function Card () {
   const products = userReadXlsx()
@@ -17,6 +18,8 @@ function Card () {
 
   const handleChange = event => {
     setSelected(event.target.value)
+    /* const marcaselet = removeCaptitalSpace(event.target.value)
+    console.log(marcaselet) */
     const banner = banners.filter((e) => e.marca === event.target.value)
     const product = products.filter((e) => e.marca === event.target.value)
     setProduct(product)

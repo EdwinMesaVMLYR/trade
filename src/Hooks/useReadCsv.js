@@ -1,4 +1,4 @@
-import { useState } from 'react'
+/* import { useState } from 'react'
 import { usePapaParse } from 'react-papaparse'
 
 export function useReadCsv (nameFile) {
@@ -44,3 +44,4 @@ export function useReadCsv (nameFile) {
   changeHandler()
   return parsedData
 }
+ */
