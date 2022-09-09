@@ -14,7 +14,6 @@ function CardItems ({ marca, size, descripcion, grados, cajaporpallet, url }) {
       setImgBrand('')
     }
   })
-  // console.log(Array.isArray(imgBrand))
   return (
     <div className='card-product'>
       <div className='card-product--logo'>

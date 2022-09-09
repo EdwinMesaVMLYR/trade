@@ -25,6 +25,7 @@ module.exports = {
       backgroundImage: {
         'header': "url('../../../public/images/bg/bg-header.jpg')",
         'bannerBrands': "url('../../../public/images/bg/bg-brands.jpg')",
+        'bakLogin': "url('../../../public/images/bg/back-login.jpg')",
         'triangle': "url('../../../public/images/icons/icon-triangle.svg')",
         'arrowDown': "url('../../../public/images/icons/icon-arrow-down.svg')"
       },
@@ -45,6 +46,7 @@ module.exports = {
       },
       boxShadow: {
         '1x2': '0px 4px 4px rgba(0, 0, 0, 0.25)',
+        '2x1': '4px 4px 4px rgba(0, 0, 0, 0.25)',
       }
     }
   },

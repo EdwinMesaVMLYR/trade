@@ -1,3 +1,1 @@
-/* import removeCaptitalSpace from './removeCaptitalSpace'
-
-export { removeCaptitalSpace } */
+export { removeCapitalSpace } from './removeCapitalSpace'

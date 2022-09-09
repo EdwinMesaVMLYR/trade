@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from 'react'
 import imgecatalogo from '../../images/catalogo.svg'
-import { Banner, Login } from '../../Components/index'
+import { Banner, Login, Select } from '../../Components/index'
 import CardItems from './CardItems/CardItems'
 import { userReadXlsx, userReadBannerXlsx } from '../../Hooks/'
-import Select from '../Select/Select'
+import { removeCapitalSpace } from '../../utils'
 
 function Card () {
   const [isLogin, setIsLogin] = useState(true)
   const products = userReadXlsx()
   const productsInfo = []
-  products.map((cat) => productsInfo.push(cat.marca))
-  const productsMarca = [...new Set(productsInfo)]
   const [selected, setSelected] = useState({})
   const [product, setProduct] = useState({})
   const [bannerItem, setBannerItem] = useState({})
   const [isBanner, setIsBanner] = useState(false)
   const banners = userReadBannerXlsx(setSelected)
+
+  products.map((cat) => productsInfo.push(cat.marca))
+  const productsMarca = [...new Set(productsInfo)]
 
   const handleChange = event => {
     let product = []
@@ -23,7 +24,7 @@ function Card () {
       setBannerItem('')
       setIsBanner(false)
     } else {
-      product = products.filter((e) => e.marca === event.target.value)
+      product = products.filter((e) => removeCapitalSpace(e.marca) === event.target.value)
       setBannerItem(banners.filter((e) => e.marca === event.target.value))
       setIsBanner(true)
     }
@@ -31,12 +32,13 @@ function Card () {
     setSelected(event.target.value)
   }
   useEffect(() => {
-    setIsLogin(true)
+    window.localStorage.getItem('login') ? setIsLogin(false) : setIsLogin(true)
   }, [])
+
   return (
     <>
     { isLogin
-      ? (<Login />)
+      ? (<Login setIsLogin={setIsLogin}/>)
       : (
         <>
           {isBanner && <Banner bannerItem={bannerItem[0]}/> }
