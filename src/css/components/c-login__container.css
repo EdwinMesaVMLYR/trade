@@ -1,0 +1,31 @@
+.login-container-navbar {
+  @apply h-10 bg-header bg-cover;
+}
+
+.login-container-body {
+  @apply flex flex-col items-center justify-center bg-bakLogin md:min-h-[80rem]
+}
+
+.login-container-body--logo {
+  @apply mb-[3rem]
+}
+
+.login-container-body--form__container {
+  @apply rounded-lg flex flex-col justify-center bg-white shadow-2x1 md:w-[35rem] md:h-[45rem] md:px-[3rem]
+}
+
+.login-container-body--form__container__image--src {
+  @apply md:w-[18rem] mt-[0] mb-[0] mx-[auto] md:mb-[10rem]
+}
+
+.form-input-default {
+  @apply h-[4.2rem] text-grayLight text-xs font-robotoMI rounded-lg px-[1.5rem] my-[1.5rem] border border-[.2rem] border-[#EBEBE3]
+}
+
+.form-btn-start-sesion {
+  @apply h-[4.2rem] text-black rounded-lg text-base font-robotoMI pointer-events-auto
+}
+
+.form-btn-forgot-passwprd {
+  @apply text-xs text-black mx-[auto] font-robotoMI mt-[1rem] underline
+}
