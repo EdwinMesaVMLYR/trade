@@ -5,18 +5,20 @@ import {
   Route
 } from 'react-router-dom'
 import Layout from './Layout/Layout'
+import Pyramid from './pages/Pyramid/Pyramid'
 import Trade from './pages/Trade/Trade'
 
 function App () {
   return (
     <>
-      <Layout>
-        <BrowserRouter>
+      <BrowserRouter>
+        <Layout>
           <Routes>
             <Route path="/" element={<Trade />} />
+            <Route path="/piramide-de-precios" element={<Pyramid />} />
           </Routes>
-        </BrowserRouter>
-      </Layout>
+        </Layout>
+      </BrowserRouter>
     </>
   )
 }
