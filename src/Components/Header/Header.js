@@ -1,5 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import logo from '../../logo.svg'
+// import imgecatalogo from '../../images/catalogo.svg'
 
 function Header () {
   return (
@@ -10,14 +12,19 @@ function Header () {
         <div className='navbar-logo'>
           <a href='/'>
             <figure>
-              <img src={logo} alt="Catálogo Cervecería ABInBev" className='logo-header'/>
+              <img src={logo} alt="Piramide de Precios" className='logo-header'/>
             </figure>
           </a>
         </div>
         <div className='navbar-nav'>
-          <a className='navbar-nav-text' href='/'>
-          PIRÁMIDE DE PRECIOS
-          </a>
+          <nav>
+            <Link className='navbar-nav-text' to="/piramide-de-precios"> PIRAMIDE DE PRECIOS </Link>
+            {/* <Link to="/">
+              <figure>
+                <img src={imgecatalogo} alt="Catálogo Cervecería ABInBev" className='logo-catalogo-header'/>
+              </figure>
+            </Link> */}
+          </nav>
         </div>
       </nav>
     </header>
