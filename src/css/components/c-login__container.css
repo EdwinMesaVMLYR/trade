@@ -3,7 +3,7 @@
 }
 
 .login-container-body {
-  @apply flex flex-col items-center justify-center bg-bakLogin md:min-h-[80rem]
+  @apply flex flex-col items-center justify-center bg-bakLogin min-h-screen md:min-h-[80rem]
 }
 
 .login-container-body--logo {
@@ -11,7 +11,7 @@
 }
 
 .login-container-body--form__container {
-  @apply rounded-lg flex flex-col justify-center bg-white shadow-2x1 md:w-[35rem] md:h-[45rem] md:px-[3rem]
+  @apply rounded-lg flex flex-col justify-center bg-white shadow-2x1 h-[45rem] px-[2rem] md:w-[35rem] md:px-[3rem]
 }
 
 .login-container-body--form__container__image--src {
