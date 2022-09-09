@@ -15,7 +15,7 @@
 }
 
 .filter-content--filter__select {
-  @apply mt-[1.5rem] px-[3rem] py-[.7rem] transition-all border border-[gray] focus-visible:border-[gray] border-[.2rem] rounded-[1.4rem] cursor-pointer hover:shadow-xl text-lg appearance-none bg-arrowDown bg-no-repeat bg-[center_right_1rem] text-grayLight font-robotoMI
+  @apply mt-[1.5rem] pl-[1.5rem] pr-[5rem] py-[.7rem] transition-all border border-[gray] focus-visible:border-[gray] border-[.2rem] rounded-[1.4rem] cursor-pointer hover:shadow-xl text-lg appearance-none bg-arrowDown bg-no-repeat bg-[center_right_1rem] text-grayLight font-robotoMI
 }
 
 .filter-content--card {
