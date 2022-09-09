@@ -54,8 +54,8 @@ function Card () {
             <CardItems {...article} key={i}></CardItems>
           ))}
       </div>
-      <Login />
     </div>
+    <Login />
     </>
   )
 }
