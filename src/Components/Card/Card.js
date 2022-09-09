@@ -3,6 +3,7 @@ import imgecatalogo from '../../images/catalogo.svg'
 import { Banner } from '../../Components/index'
 import CardItems from './CardItems/CardItems'
 import { userReadXlsx, userReadBannerXlsx } from '../../Hooks/'
+import Select from '../Select/Select'
 // import { removeCaptitalSpace } from '../../utils/'
 
 function Card () {
@@ -36,12 +37,8 @@ function Card () {
         </div>
         <div className='filter-content--header__title'>
           <h2 className='filter-content--header__title--text'>SPMK</h2>
-        </div>
-        <div className='filter-content--filter'>
-          <select className='filter-content--filter__select' name="select" value={selected} onChange={handleChange}>
-            {productsMarca.map((cat, i) => <option className='filter-content--filter__option' value={cat} key={i}>{cat}</option>)}
-          </select>
-        </div>
+          </div>
+          <Select productsMarca={productsMarca} selected={selected} handleChange={handleChange}/>
       </div>
       <div className='filter-content--card'>
         {setSelected}
