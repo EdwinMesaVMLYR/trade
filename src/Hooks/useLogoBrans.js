@@ -13,6 +13,5 @@ export function useLogoBrans () {
       setLogos(data) // update state
     })()
   }, [])
-  console.log(logos)
   return logos
 }

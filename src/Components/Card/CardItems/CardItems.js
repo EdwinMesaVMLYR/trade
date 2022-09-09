@@ -1,14 +1,24 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { number, string } from 'prop-types'
-import logoc from '../../../images/logoc.png'
 import { useLogoBrans } from '../../../Hooks/'
-function CardItems ({ size, descripcion, grados, cajaporpallet, url }) {
-  const logo = useLogoBrans()
-  console.log(logo)
+function CardItems ({ marca, size, descripcion, grados, cajaporpallet, url }) {
+  const logosBrands = useLogoBrans()
+
+  const [imgBrand, setImgBrand] = useState([])
+
+  useEffect(() => {
+    const imageBrand = logosBrands.filter((e) => e.marca === marca)
+    if (imageBrand.length > 0) {
+      setImgBrand(imageBrand[0].urlimagen)
+    } else {
+      setImgBrand('')
+    }
+  })
+  // console.log(Array.isArray(imgBrand))
   return (
     <div className='card-product'>
       <div className='card-product--logo'>
-        <img src={logoc} alt="img prdducto" className='card-product--logo__image'/>
+        <img src={imgBrand} alt="img prdducto" className='card-product--logo__image' />
       </div>
       <div className='card-product--image'>
         <img src={url} alt="img prdducto" className='card-product--image__image'/>
