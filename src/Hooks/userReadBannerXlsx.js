@@ -4,7 +4,7 @@ import { read, utils } from 'xlsx'
 export function userReadBannerXlsx (marca) {
   /* the component state is an array of presidents */
   const [pres, setPres] = useState([])
-  const url = 'https://dev-ab-co-budweiser.pantheonsite.io/sites/default/files/2022-09/banner-marcas.xlsx'
+  const url = 'https://dev-ab-pe-corona.pantheonsite.io/sites/default/files/2022-09/banner-marcas.xlsx'
   const requestOptions = {
     method: 'GET',
     headers: {
