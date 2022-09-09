@@ -1,10 +1,8 @@
 import React from 'react'
 import { number, string } from 'prop-types'
 import logoc from '../../../images/logoc.png'
-import { useLogoBrans } from '../../../Hooks/'
+/* import { useLogoBrans } from '../../../Hooks/' */
 function CardItems ({ size, descripcion, grados, cajaporpallet, url }) {
-  const logo = useLogoBrans()
-  console.log(logo)
   return (
     <div className='card-product'>
       <div className='card-product--logo'>

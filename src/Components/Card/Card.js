@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import imgecatalogo from '../../images/catalogo.svg'
-import { Banner } from '../../Components/index'
+import { Banner, Login } from '../../Components/index'
 import CardItems from './CardItems/CardItems'
 import { userReadXlsx, userReadBannerXlsx } from '../../Hooks/'
 import Select from '../Select/Select'
@@ -14,22 +14,26 @@ function Card () {
   const [selected, setSelected] = useState({})
   const [product, setProduct] = useState({})
   const [bannerItem, setBannerItem] = useState({})
-  const [isLoading, setIsLoading] = useState(false)
+  const [isBanner, setIsBanner] = useState(false)
   const banners = userReadBannerXlsx(setSelected)
 
   const handleChange = event => {
-    setSelected(event.target.value)
-    /* const marcaselet = removeCaptitalSpace(event.target.value)
-    console.log(marcaselet) */
-    const banner = banners.filter((e) => e.marca === event.target.value)
-    const product = products.filter((e) => e.marca === event.target.value)
+    let product = []
+    if (event.target.value === 'all') {
+      product = products.filter((e) => e.marca !== 'all')
+      setBannerItem('')
+      setIsBanner(false)
+    } else {
+      product = products.filter((e) => e.marca === event.target.value)
+      setBannerItem(banners.filter((e) => e.marca === event.target.value))
+      setIsBanner(true)
+    }
     setProduct(product)
-    setBannerItem(banner[0])
-    setIsLoading(true)
+    setSelected(event.target.value)
   }
   return (
     <>
-    {isLoading ? <Banner bannerItem={bannerItem}/> : null}
+    {isBanner && <Banner bannerItem={bannerItem[0]}/> }
     <div className='filter-content 2xl:max-w-screen-xl mx-auto'>
       <div className='filter-content--header'>
         <div className='filter-content--header__image'>
@@ -42,7 +46,7 @@ function Card () {
       </div>
       <div className='filter-content--card'>
         {setSelected}
-        {isLoading === false
+        {isBanner === false
           ? products.map((article, i) => (
               <CardItems {...article} key={i}></CardItems>
           ))
@@ -50,7 +54,9 @@ function Card () {
             <CardItems {...article} key={i}></CardItems>
           ))}
       </div>
-    </div></>
+      <Login />
+    </div>
+    </>
   )
 }
 
