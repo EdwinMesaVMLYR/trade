@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { number, string } from 'prop-types'
 import { useLogoBrans } from '../../../Hooks/'
-function CardItems ({ marca, size, descripcion, grados, cajaporpallet, url }) {
+function CardItems ({ marca, size, descripcion, grados, ean, cajaporpallet, url }) {
   const logosBrands = useLogoBrans()
 
   const [imgBrand, setImgBrand] = useState([])
@@ -36,6 +36,9 @@ function CardItems ({ marca, size, descripcion, grados, cajaporpallet, url }) {
         <div className='card-product--description'>
           <p className='card-product--description__text'>{cajaporpallet} cajas por pallet</p>
         </div>
+        <div className='card-product--barcode'>
+          <img src={`https://barcode.tec-it.com/barcode.ashx?data=${ean}&code=Code128&translate-esc=on`} alt="img prdducto" className='card-product--barcode__image'/>
+        </div>
       </div>
     </div>
   )
@@ -46,6 +49,7 @@ CardItems.propTypes = {
   size: string,
   descripcion: string.isRequired,
   grados: number.isRequired,
+  ean: number.isRequired,
   cajaporpallet: string,
   url: string
 }

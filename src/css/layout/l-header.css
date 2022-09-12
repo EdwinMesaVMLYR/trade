@@ -8,7 +8,11 @@
 }
 
 .navbar-brand {
-  @apply h-[12rem] flex flex-col md:flex-row items-center justify-evenly md:justify-between max-w-[90%] md:max-w-[85%];
+  @apply h-[15rem] flex flex-col md:flex-row items-center justify-evenly md:h-[12rem] md:justify-between max-w-[90%] md:max-w-[85%];
+}
+
+.navbar-nav {
+  @apply h-[3rem] md:h-[auto]
 }
 
 .navbar-nav-text {

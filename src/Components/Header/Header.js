@@ -1,9 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import logo from '../../logo.svg'
-// import imgecatalogo from '../../images/catalogo.svg'
+import imgecatalogo from '../../images/catalogo.svg'
 
 function Header () {
+  const locationUrl = useLocation().pathname
   return (
     <header className='header'>
       <div className="navbar">
@@ -18,12 +19,16 @@ function Header () {
         </div>
         <div className='navbar-nav'>
           <nav>
-            <Link className='navbar-nav-text' to="/piramide-de-precios"> PIRAMIDE DE PRECIOS </Link>
-            {/* <Link to="/">
-              <figure>
-                <img src={imgecatalogo} alt="Catálogo Cervecería ABInBev" className='logo-catalogo-header'/>
-              </figure>
-            </Link> */}
+            {locationUrl !== '/piramide-de-precios'
+              ? <>
+                <Link className='navbar-nav-text' to="/piramide-de-precios"> PIRAMIDE DE PRECIOS </Link>
+              </>
+              : <Link to="/">
+                <figure>
+                  <img src={imgecatalogo} alt="Catálogo Cervecería ABInBev" className='logo-catalogo-header' />
+                </figure>
+              </Link>
+            }
           </nav>
         </div>
       </nav>
