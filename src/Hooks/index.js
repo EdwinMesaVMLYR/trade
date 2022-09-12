@@ -1,5 +1,5 @@
-export { userReadXlsx } from './userReadXlsx'
-export { userReadBannerXlsx } from './userReadBannerXlsx'
-export { useTest } from './useTest'
+export { useReadProducts } from './useReadProducts'
+export { useReadBanner } from './useReadBanner'
 export { useLogoBrans } from './useLogoBrans'
 export { useUsers } from './useUsers'
+// export { useGetLocal } from './useGetLocal'
