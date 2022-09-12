@@ -39,7 +39,7 @@ module.exports = {
         'gray': '#484748',
         'grayLight': '#858585',
         'red': '#C62426',
-        'yellow': '#E6C71E'
+        'yellow': '#E6C71E',
       },
       container: {
         center: true,
