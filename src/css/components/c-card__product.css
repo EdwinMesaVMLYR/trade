@@ -3,11 +3,11 @@
 }
 
 .card-product--logo {
-  @apply w-[10rem];
+  @apply flex items-center w-[10rem] h-[10rem];
 }
 
 .card-product--image {
-  @apply flex items-center justify-center md:md:w-[28.2rem] h-[28.2rem];
+  @apply flex items-center justify-center md:md:w-[28rem] h-[24rem];
 }
 
 .card-product--image__image {
@@ -40,4 +40,8 @@
 
 .card-product--description__text {
   @apply font-robotoI font-medium text-xs text-gray;
+}
+
+.card-product--barcode__image {
+  @apply mx-auto mt-[2.5rem] px-[15%] py-[0];
 }
