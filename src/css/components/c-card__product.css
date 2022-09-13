@@ -7,11 +7,11 @@
 }
 
 .card-product--image {
-  @apply flex items-center justify-center md:md:w-[28rem] h-[24rem];
+  @apply flex items-center justify-center md:w-full h-[24rem] hover:from-[#e5e7eb] rounded-2xl;
 }
 
-.card-product--image__image {
-  @apply w-[70%] transition-all transform hover:-translate-y-1 hover:scale-110 to-transparent bg-gradient-to-r;
+.card-product__image {
+  @apply w-[70%] transition-all transform hover:-translate-y-1 hover:scale-110;
 }
 
 .card-product--body {

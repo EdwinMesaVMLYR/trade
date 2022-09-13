@@ -19,7 +19,7 @@ function Header () {
         </div>
         <div className='navbar-nav'>
           <nav>
-            {locationUrl !== '/piramide-de-precios'
+            {locationUrl !== '/piramide-de-precios' && locationUrl !== '/404'
               ? <>
                 <Link className='navbar-nav-text' to="/piramide-de-precios"> PIRAMIDE DE PRECIOS </Link>
               </>
