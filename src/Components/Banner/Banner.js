@@ -1,5 +1,5 @@
 import React from 'react'
-import { string } from 'prop-types'
+import { object, oneOfType, string } from 'prop-types'
 import BannerItem from './BannerItem/BannerItem'
 
 function Banner ({ bannerItem }) {
@@ -9,7 +9,7 @@ function Banner ({ bannerItem }) {
 }
 
 Banner.propTypes = {
-  bannerItem: string.isRequired
+  bannerItem: oneOfType([object, string])
 }
 
 export default Banner

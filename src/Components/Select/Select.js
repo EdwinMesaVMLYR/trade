@@ -1,4 +1,4 @@
-import { array, func, object } from 'prop-types'
+import { array, func, string, oneOfType, object } from 'prop-types'
 import { removeCapitalSpace } from '../../utils'
 function Select (props) {
   const { handleChange, selected, productsMarca } = props
@@ -14,7 +14,7 @@ function Select (props) {
 
 Select.propTypes = {
   handleChange: func.isRequired,
-  selected: object.isRequired,
+  selected: oneOfType([object, string]),
   productsMarca: array.isRequired
 }
 
