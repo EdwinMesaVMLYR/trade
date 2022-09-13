@@ -1,7 +1,7 @@
 import React from 'react'
 import imagePyramide from '../../images/pyramide.jpg'
 
-function Piramyd () {
+function Pyramid () {
   return (
     <div className='pyramide'>
       <div className='pyramide-header'>PIRÁMIDE DE PRECIOS</div>
@@ -11,4 +11,4 @@ function Piramyd () {
     </div>
   )
 }
-export default Piramyd
+export default Pyramid

@@ -27,7 +27,7 @@
 }
 
 .form-btn-start-sesion {
-  @apply h-[4.2rem] text-black rounded-lg text-base font-robotoMI pointer-events-auto
+  @apply h-[4.2rem] text-black rounded-lg text-base font-robotoMI cursor-pointer
 }
 
 .form-btn-forgot-passwprd {

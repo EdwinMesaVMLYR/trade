@@ -55,7 +55,7 @@ function Card () {
                 <img src={imgecatalogo} alt="image aca" className='filter-content--header__image--src' />
               </div>
               <div className='filter-content--header__title'>
-                <h2 className='filter-content--header__title--text'>SPMK</h2>
+                <h2 className='filter-content--header__title--text'>{acronym}</h2>
                 </div>
                 <Select productsMarca={productsMarca} selected={selected} handleChange={handleChange}/>
             </div>
