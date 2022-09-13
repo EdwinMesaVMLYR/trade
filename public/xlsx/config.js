@@ -8,8 +8,13 @@ export default function config () {
       },
       {
         name: 'spmk2',
-        url: '../xlsx/banner-marcas-spmk.xlsx',
+        url: 'https://sheet.best/api/sheets/2ba54fe3-6a0a-4842-b40a-93f8c0e6b6f7',
         type: 'external'
+      },
+      {
+        name: 'koe-tt',
+        url: '../xlsx/banner-marcas-spmk.xlsx',
+        type: 'local'
       }
     ],
     catalogues: [
@@ -20,8 +25,13 @@ export default function config () {
       },
       {
         name: 'spmk2',
-        url: '../xlsx/banner-marcas-spmk.xlsx',
+        url: 'https://sheet.best/api/sheets/2ba54fe3-6a0a-4842-b40a-93f8c0e6b6f7',
         type: 'external'
+      },
+      {
+        name: 'koe-tt',
+        url: '../xlsx/catalogo-produtos-spmk.xlsx',
+        type: 'local'
       }
     ]
   }
