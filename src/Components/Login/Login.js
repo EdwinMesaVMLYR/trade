@@ -33,7 +33,7 @@ export default function Login ({ setIsLogin }) {
             <input className='form-input-default' placeholder='Correo electrónico' {...register('email', { required: true })} />
             {errors.exampleRequired && <span>Este campo es requerido</span>}
             <input className='bg-yellow form-btn-start-sesion' value="Iniciar sesión" type='submit' />
-            <a className='form-btn-forgot-passwprd' href='/'>Olvidé Contraseña</a>
+            {/* <a className='form-btn-forgot-passwprd' href='/'>Olvidé Contraseña</a> */}
           </form>
         </div>
       </div>
