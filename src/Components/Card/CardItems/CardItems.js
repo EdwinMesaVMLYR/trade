@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { number, string } from 'prop-types'
+import { number, string, oneOfType } from 'prop-types'
 import { useLogoBrans } from '../../../Hooks/'
 function CardItems ({ marca, size, descripcion, grados, ean, cajaporpallet, url }) {
   const logosBrands = useLogoBrans()
-
   const [imgBrand, setImgBrand] = useState([])
-
   useEffect(() => {
     const imageBrand = logosBrands.filter((e) => e.marca === marca)
     if (imageBrand.length > 0) {
@@ -37,19 +35,23 @@ function CardItems ({ marca, size, descripcion, grados, ean, cajaporpallet, url 
           {cajaporpallet && (<p className='card-product--description__text'>{cajaporpallet} cajas por pallet</p>)}
         </div>
         <div className='card-product--barcode'>
-          {ean && <img src={`https://barcode.tec-it.com/barcode.ashx?data=${ean}&code=Code128&translate-esc=on`} alt="img prdducto" className='card-product--barcode__image'/>}
+          {ean && <img src={`https://barcode.tec-it.com/barcode.ashx?data=${ean.toString()}&code=Code128&translate-esc=on`} alt="img prdducto" className='card-product--barcode__image'/>}
         </div>
       </div>
     </div>
   )
 }
+CardItems.defaultProps = {
+  ean: '',
+  size: ''
+}
 
 CardItems.propTypes = {
   marca: string.isRequired,
-  size: number.isRequired,
+  size: oneOfType([number, string]),
   descripcion: string.isRequired,
   grados: number.isRequired,
-  ean: number,
+  ean: oneOfType([number, string]),
   cajaporpallet: number.isRequired,
   url: string
 }
