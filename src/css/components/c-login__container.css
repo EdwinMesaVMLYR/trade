@@ -1,3 +1,7 @@
+.login-container {
+  @apply absolute w-full top-[0]
+}
+
 .login-container-navbar {
   @apply h-10 bg-header bg-cover;
 }

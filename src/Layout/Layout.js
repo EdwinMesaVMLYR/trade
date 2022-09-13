@@ -1,7 +1,6 @@
 import React from 'react'
 import { Header, Footer } from '../Components/index'
 import PropTypes from 'prop-types'
-
 function Layout ({ children }) {
   // const [isPyramid, setIsPyramid] = useState(false)
   return (
