@@ -2,22 +2,23 @@ import React, { useState, useEffect } from 'react'
 import imgecatalogo from '../../images/catalogo.svg'
 import { Banner, Login, Select } from '../../Components/index'
 import CardItems from './CardItems/CardItems'
-import { userReadXlsx, userReadBannerXlsx } from '../../Hooks/'
+import { useReadProducts, useReadBanner } from '../../Hooks/'
 import { removeCapitalSpace } from '../../utils'
+import { useParams, useNavigate } from 'react-router-dom'
 
 function Card () {
+  const navigate = useNavigate()
+  const { acronym } = useParams()
   const [isLogin, setIsLogin] = useState(true)
-  const products = userReadXlsx()
+  const products = useReadProducts(acronym)
   const productsInfo = []
   const [selected, setSelected] = useState({})
   const [product, setProduct] = useState({})
   const [bannerItem, setBannerItem] = useState({})
   const [isBanner, setIsBanner] = useState(false)
-  const banners = userReadBannerXlsx(setSelected)
-
+  const banners = useReadBanner(acronym)
   products.map((cat) => productsInfo.push(cat.marca))
   const productsMarca = [...new Set(productsInfo)]
-
   const handleChange = event => {
     let product = []
     if (event.target.value === 'all') {
@@ -25,11 +26,14 @@ function Card () {
       setIsBanner(false)
     } else {
       product = products.filter((e) => removeCapitalSpace(e.marca) === event.target.value)
-      setBannerItem(banners.filter((e) => e.marca === event.target.value))
+      setBannerItem(banners.filter((e) => e.keymain === event.target.value))
       setIsBanner(true)
     }
     setProduct(product)
     setSelected(event.target.value)
+  }
+  if (product.length <= 0 || bannerItem.length <= 0) {
+    navigate('/404')
   }
   useEffect(() => {
     window.localStorage.getItem('login') ? setIsLogin(false) : setIsLogin(true)

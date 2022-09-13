@@ -15,7 +15,7 @@ function App () {
       <BrowserRouter>
         <Layout>
           <Routes>
-            <Route path="/" element={<Trade />} />
+            <Route path="/:acronym" element={<Trade />} />
             <Route path="/piramide-de-precios" element={<Pyramid />} />
             <Route path="/404" element={<Notfound />} />
           </Routes>

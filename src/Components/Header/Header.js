@@ -11,7 +11,7 @@ function Header () {
       </div>
       <nav className='navbar-brand 2xl:max-w-screen-xl mx-auto'>
         <div className='navbar-logo'>
-          <a href='/'>
+          <a href='/spmk'>
             <figure>
               <img src={logo} alt="Piramide de Precios" className='logo-header'/>
             </figure>
