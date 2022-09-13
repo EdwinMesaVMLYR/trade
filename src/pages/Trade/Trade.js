@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card } from '../../Components/index'
 
-function Login () {
+function Trade () {
   return (
     <section>
       <Card />
@@ -9,4 +9,4 @@ function Login () {
   )
 }
 
-export default Login
+export default Trade
