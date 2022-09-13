@@ -32,11 +32,14 @@ function Card () {
     setProduct(product)
     setSelected(event.target.value)
   }
-  if (product.length <= 0 || bannerItem.length <= 0) {
+  if (product.length <= 0 && isBanner) {
+    navigate('/404')
+  }
+  if (bannerItem.length <= 0 && isBanner) {
     navigate('/404')
   }
   useEffect(() => {
-    window.localStorage.getItem('login') ? setIsLogin(false) : setIsLogin(true)
+    document.cookie.replace(/(?:(?:^|.*;\s*)loginopen\s*\s*([^;]*).*$)|^.*$/, '$1') ? setIsLogin(false) : setIsLogin(true)
   }, [])
 
   return (

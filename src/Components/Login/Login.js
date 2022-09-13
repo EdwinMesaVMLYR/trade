@@ -11,15 +11,16 @@ export default function Login ({ setIsLogin }) {
   const onSubmit = (data) => {
     const email = user.filter((e) => e.MAIL === data.email)
     if (email.length > 0) {
+      const date = new Date()
+      date.setTime(date.getTime() + (180 * 60 * 1000))
+      const expires = '; expires=' + date.toGMTString()
       setIsLogin(false)
-      window.localStorage.setItem('login', 'true')
+      document.cookie = 'loginopen' + '=' + 'istruelogin' + expires + '; path=/'
     } else {
       setIsLogin(true)
     }
   }
-
   return (
-    /* 'handleSubmit' will validate your inputs before invoking 'onSubmit' */
     <div className='login-container 2xl:max-w-screen-2xl mx-auto'>
       <div className='login-container-navbar'></div>
       <div className='login-container-body'>

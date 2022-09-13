@@ -34,7 +34,7 @@ function CardItems ({ marca, size, descripcion, grados, cajaporpallet, url }) {
           }
         </div>
         <div className='card-product--description'>
-          <p className='card-product--description__text'>{cajaporpallet} cajas por pallet</p>
+          {cajaporpallet ? (<p className='card-product--description__text'>{cajaporpallet} cajas por pallet</p>) : null }
         </div>
       </div>
     </div>
@@ -43,10 +43,10 @@ function CardItems ({ marca, size, descripcion, grados, cajaporpallet, url }) {
 
 CardItems.propTypes = {
   marca: string.isRequired,
-  size: string,
+  size: number.isRequired,
   descripcion: string.isRequired,
   grados: number.isRequired,
-  cajaporpallet: string,
+  cajaporpallet: number.isRequired,
   url: string
 }
 

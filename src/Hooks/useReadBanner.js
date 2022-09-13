@@ -7,6 +7,9 @@ export function useReadBanner (acronym) {
   const [banner, setBanner] = useState([])
   const obj = config()
   const banners = obj.banners.filter((e) => e.name === acronym)
+  if (banners.length === 0) {
+    window.location.href = '/404'
+  }
   if (banners[0].type === 'local') {
     useEffect(() => {
       (async () => {
