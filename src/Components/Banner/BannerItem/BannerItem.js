@@ -8,44 +8,44 @@ function BannerItem ({ bannerItem }) {
       <div className='banner 2xl:max-w-screen-2xl mx-auto'>
         <div className='banner--content'>
           <div className='banner--content__image'>
-            <img src={urlbackground} alt="image aca" className='banner--content__image--background' />
+            {urlbackground && <img src={urlbackground} alt="image aca" className='banner--content__image--background' />}
           </div>
           <div className='banner--content__body'>
             <div className='banner--content__left'>
-            <img src={linkskubaner} alt="image aca" className='banner--content__right--image' />
+            {linkskubaner && <img src={linkskubaner} alt="image aca" className='banner--content__right--image' />}
           </div>
           <div className='banner--content__right'>
             <div className='card--banner'>
-              <div className='card--banner__header'>
+              {atributos && (<div className='card--banner__header'>
                 <div className='card--banner__header--info'>
                   <span className='card--banner__header--info--text'>ATRIBUTOS</span>
                 </div>
                 <div className='card--banner__header--detail'>
                   <h2 className='card--banner__header--detail--text'>{atributos}</h2>
                 </div>
-              </div>
+              </div>)}
               <div className='card--banner__body'>
                 <div className='card--banner__body--info'>
                   <p className='card--banner__body--info--text'>ARGUMENTO DE VENTA</p>
                 </div>
                 <div className='card--banner__body--details'>
-                  <div className='card--banner__body--details--left'>
-                    <h3 className='card--banner__body--dl--points'>
+                  {abv && <div className='card--banner__body--details--left'>
+                     <h3 className='card--banner__body--dl--points'>
                       {abv}
                     </h3>
                     <span className='card--banner__body--dl--desc'>
                       PUNTOS DEL MERCADO
                     </span>
-                  </div>
+                  </div>}
                   <div className='card--banner__body--details--center'>
-                    <span className='card--banner__body--dc-data'>Color: {color}</span>
-                    <span className='card--banner__body--dc-data'>Estilo: {Estilo}</span>
-                    <span className='card--banner__body--dc-data'>Origen: {origen}</span>
+                    {color && <span className='card--banner__body--dc-data'>Color: {color}</span>}
+                    {Estilo && <span className='card--banner__body--dc-data'>Estilo: {Estilo}</span>}
+                    {origen && <span className='card--banner__body--dc-data'>Origen: {origen}</span>}
                   </div>
                   <div className='card--banner__body--details--right'>
-                    <span className='card--banner__body--dr-data'>ABV: {abv}</span>
-                    <span className='card--banner__body--dr-data'>Ritual: {ritual}</span>
-                    <span className='card--banner__body--dr-data'>IBU: {ibu}</span>
+                    {abv && <span className='card--banner__body--dr-data'>ABV: {abv}</span>}
+                    {ritual && <span className='card--banner__body--dr-data'>Ritual: {ritual}</span>}
+                    {ibu && <span className='card--banner__body--dr-data'>IBU: {ibu}</span>}
                   </div>
                 </div>
               </div>

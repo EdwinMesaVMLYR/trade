@@ -1,12 +1,20 @@
 import { useEffect, useState } from 'react'
-import { removeCapitalSpace } from '../utils'
+import { removeCapitalSpace, removeLocation } from '../utils'
 import { read, utils } from 'xlsx'
 import config from '../xlsx/config'
+import { useLocation } from 'react-router-dom'
 
 export function useReadProducts (acronym) {
-  const [product, setProduct] = useState([])
   const obj = config()
-  const catalogues = obj.catalogues.filter((e) => e.name === acronym)
+  const [product, setProduct] = useState([])
+  const locationUrl = useLocation().pathname
+  let catalogues = []
+  if (locationUrl === '/spmk') {
+    catalogues = obj.catalogues.filter((e) => e.name === acronym)
+  } else {
+    const cata = removeLocation(locationUrl, acronym) + '-' + acronym
+    catalogues = obj.catalogues.filter((e) => e.name === cata)
+  }
   if (catalogues.length === 0) {
     window.location.href = '/404'
   }
@@ -22,6 +30,10 @@ export function useReadProducts (acronym) {
         setProduct(data)
       })()
     }, [])
+  } else if (catalogues[0].type === 'external') {
+    fetch(catalogues[0].url)
+      .then(response => response.json())
+      .then(data => setProduct(data))
   }
   return product
 }

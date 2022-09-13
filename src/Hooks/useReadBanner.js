@@ -1,12 +1,20 @@
 import { useEffect, useState } from 'react'
 import { read, utils } from 'xlsx'
-import { removeCapitalSpace } from '../utils'
+import { removeCapitalSpace, removeLocation } from '../utils'
 import config from '../xlsx/config'
+import { useLocation } from 'react-router-dom'
 
 export function useReadBanner (acronym) {
-  const [banner, setBanner] = useState([])
   const obj = config()
-  const banners = obj.banners.filter((e) => e.name === acronym)
+  const [banner, setBanner] = useState([])
+  const locationUrl = useLocation().pathname
+  let banners = []
+  if (locationUrl === '/spmk') {
+    banners = obj.banners.filter((e) => e.name === acronym)
+  } else {
+    const cata = removeLocation(locationUrl, acronym) + '-' + acronym
+    banners = obj.banners.filter((e) => e.name === cata)
+  }
   if (banners.length === 0) {
     window.location.href = '/404'
   }

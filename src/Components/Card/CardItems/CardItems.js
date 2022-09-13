@@ -15,7 +15,7 @@ function CardItems ({ marca, size, descripcion, grados, ean, cajaporpallet, url 
   return (
     <div className='card-product'>
       <div className='card-product--logo'>
-        {imgBrand && <img src={imgBrand} alt="img prdducto" className='card-product--logo__image' />}
+        {imgBrand && <img src={imgBrand} alt="descripcion" className='card-product--logo__image' />}
       </div>
       <div className='card-product--image hover:from-gray-200 to-transparent bg-gradient-to-t'>
         {url && <img src={url} alt="img prdducto" className='card-product__image'/>}
