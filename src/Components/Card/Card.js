@@ -4,9 +4,10 @@ import { Banner, Login, Select } from '../../Components/index'
 import CardItems from './CardItems/CardItems'
 import { useReadProducts, useReadBanner } from '../../Hooks/'
 import { removeCapitalSpace } from '../../utils'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 
 function Card () {
+  const navigate = useNavigate()
   const { acronym } = useParams()
   const [isLogin, setIsLogin] = useState(true)
   const products = useReadProducts(acronym)
@@ -19,19 +20,20 @@ function Card () {
   products.map((cat) => productsInfo.push(cat.marca))
   const productsMarca = [...new Set(productsInfo)]
   const handleChange = event => {
-    console.log('here')
     let product = []
     if (event.target.value === 'all') {
       setBannerItem('')
       setIsBanner(false)
     } else {
       product = products.filter((e) => removeCapitalSpace(e.marca) === event.target.value)
-      console.log(banners)
-      setBannerItem(banners.filter((e) => e.marca === event.target.value))
+      setBannerItem(banners.filter((e) => e.keymain === event.target.value))
       setIsBanner(true)
     }
     setProduct(product)
     setSelected(event.target.value)
+  }
+  if (product.length <= 0 || bannerItem.length <= 0) {
+    navigate('/404')
   }
   useEffect(() => {
     window.localStorage.getItem('login') ? setIsLogin(false) : setIsLogin(true)

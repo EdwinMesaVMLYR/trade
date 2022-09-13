@@ -1,0 +1,7 @@
+.not-found {
+  @apply flex items-center justify-center min-h-screen;
+}
+
+.not-found--text {
+  @apply text-[7rem] text-gray font-robotoMI
+}
