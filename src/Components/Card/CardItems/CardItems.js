@@ -46,11 +46,11 @@ function CardItems ({ marca, size, descripcion, grados, ean, cajaporpallet, url 
 
 CardItems.propTypes = {
   marca: string.isRequired,
-  size: string,
+  size: number.isRequired,
   descripcion: string.isRequired,
   grados: number.isRequired,
-  ean: number.isRequired,
-  cajaporpallet: string,
+  ean: number,
+  cajaporpallet: number.isRequired,
   url: string
 }
 
