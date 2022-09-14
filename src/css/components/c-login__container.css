@@ -1,5 +1,5 @@
 .login-container {
-  @apply absolute w-full top-[0]
+  @apply -mt-[17.5rem] md:-mt-[14.5rem] relative 
 }
 
 .login-container-navbar {

@@ -4,11 +4,15 @@ import { Banner, Login, Select } from '../../Components/index'
 import CardItems from './CardItems/CardItems'
 import { useReadProducts, useReadBanner } from '../../Hooks/'
 import { removeCapitalSpace } from '../../utils'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, useLocation } from 'react-router-dom'
 
 function Card () {
   const navigate = useNavigate()
   const { acronym } = useParams()
+  const locationUrl = useLocation().pathname
+  localStorage.setItem('url', locationUrl)
+  const valueLocationUrl = localStorage.getItem('url')
+  console.log(valueLocationUrl)
   const [isLogin, setIsLogin] = useState(true)
   const products = useReadProducts(acronym)
   const productsInfo = []

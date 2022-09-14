@@ -2,17 +2,17 @@ import React from 'react'
 import { string, oneOfType, object } from 'prop-types'
 
 function BannerItem ({ bannerItem }) {
-  const { linkskubaner, urlbackground, atributos, color, origen, ritual, Estilo, abv, ibu } = bannerItem
+  const { marca, linkskubaner, urlbackground, atributos, color, origen, ritual, Estilo, abv, ibu } = bannerItem
   return (
     <>
       <div className='banner 2xl:max-w-screen-2xl mx-auto'>
         <div className='banner--content'>
           <div className='banner--content__image'>
-            {urlbackground && <img src={urlbackground} alt="image aca" className='banner--content__image--background' />}
+            {urlbackground && <img src={urlbackground} alt={marca} className='banner--content__image--background' />}
           </div>
           <div className='banner--content__body'>
             <div className='banner--content__left'>
-            {linkskubaner && <img src={linkskubaner} alt="image aca" className='banner--content__right--image' />}
+            {linkskubaner && <img src={linkskubaner} alt={marca} className='banner--content__right--image' />}
           </div>
           <div className='banner--content__right'>
             <div className='card--banner'>
@@ -44,7 +44,7 @@ function BannerItem ({ bannerItem }) {
                   </div>
                   <div className='card--banner__body--details--right'>
                     {abv && <span className='card--banner__body--dr-data'>ABV: {abv}</span>}
-                    {ritual && <span className='card--banner__body--dr-data'>Ritual: {ritual}</span>}
+                      {ritual !== '-' && <span className='card--banner__body--dr-data'>Ritual: {ritual}</span>}
                     {ibu && <span className='card--banner__body--dr-data'>IBU: {ibu}</span>}
                   </div>
                 </div>
