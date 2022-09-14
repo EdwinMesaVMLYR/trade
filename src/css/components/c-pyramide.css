@@ -1,3 +1,15 @@
+.pyramide {
+  @apply py-[4%] min-h-screen
+}
+
+.pyramide-header {
+  @apply font-robotoI text-gray text-base font-bold text-[2rem] text-center md:text-[3rem] md:text-left
+}
+
+.pyramide-image {
+  @apply pt-[30%] md:pt-[initial]
+}
+
 .pyramide-image--src {
   @apply mx-auto
 }

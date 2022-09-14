@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { number, string, oneOfType } from 'prop-types'
-import { useLogoBrans } from '../../../Hooks/'
+import { useLogoBrans } from '../../../Hooks'
 function CardItems ({ marca, size, descripcion, grados, ean, cajaporpallet, url }) {
   const logosBrands = useLogoBrans()
   const [imgBrand, setImgBrand] = useState([])
