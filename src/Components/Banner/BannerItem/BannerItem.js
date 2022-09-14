@@ -1,5 +1,6 @@
 import React from 'react'
 import { string, oneOfType, object } from 'prop-types'
+import { removeCommas } from '../../../utils'
 
 function BannerItem ({ bannerItem }) {
   const { linkskubaner, urlbackground, atributos, color, origen, ritual, Estilo, abv, ibu } = bannerItem
@@ -31,7 +32,7 @@ function BannerItem ({ bannerItem }) {
                 <div className='card--banner__body--details'>
                   {abv && <div className='card--banner__body--details--left'>
                      <h3 className='card--banner__body--dl--points'>
-                      {abv}
+                      {removeCommas(abv)}
                     </h3>
                     <span className='card--banner__body--dl--desc'>
                       PUNTOS DEL MERCADO

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import imgecatalogo from '../../images/catalogo.svg'
 import { Banner, Login, Select } from '../../Components/index'
 import CardItems from './CardItems/CardItems'
 import { useReadProducts, useReadBanner } from '../../Hooks/'
@@ -42,39 +41,31 @@ function Card () {
     document.cookie.replace(/(?:(?:^|.*;\s*)loginopen\s*\s*([^;]*).*$)|^.*$/, '$1') ? setIsLogin(false) : setIsLogin(true)
   }, [])
 
-  return (
-    <>
-    { isLogin
-      ? (<Login setIsLogin={setIsLogin}/>)
-      : (
-        <>
-          {isBanner && <Banner bannerItem={bannerItem[0]}/> }
-          <div className='filter-content 2xl:max-w-screen-xl mx-auto'>
-            <div className='filter-content--header'>
-              <div className='filter-content--header__image'>
-                <img src={imgecatalogo} alt="image aca" className='filter-content--header__image--src' />
-              </div>
-              <div className='filter-content--header__title'>
-                <h2 className='filter-content--header__title--text'>SPMK</h2>
-                </div>
-                <Select productsMarca={productsMarca} selected={selected} handleChange={handleChange}/>
-            </div>
-            <div className='filter-content--card'>
-              {setSelected}
-              {isBanner === false
-                ? products.map((article, i) => (
-                    <CardItems {...article} key={i}></CardItems>
-                ))
-                : product.map((article, i) => (
-                  <CardItems {...article} key={i}></CardItems>
-                ))}
-            </div>
-          </div>
-        </>
-        )
+  const getMarkup = () => {
+    let markup = ''
+    if (isLogin) {
+      markup = <Login setIsLogin={setIsLogin}/>
+    } else {
+      markup =
+      <div>
+        {isBanner && <Banner bannerItem={bannerItem[0]}/> }
+        <Select productsMarca={productsMarca} selected={selected} handleChange={handleChange}/>
+        <div className='filter-content--card'>
+          {setSelected}
+          {isBanner === false
+            ? products.map((article, i) => (
+                <CardItems {...article} key={i}></CardItems>
+            ))
+            : product.map((article, i) => (
+              <CardItems {...article} key={i}></CardItems>
+            ))}
+        </div>
+      </div>
     }
-    </>
-  )
+    return markup
+  }
+
+  return <div>{getMarkup()}</div>
 }
 
 export default Card

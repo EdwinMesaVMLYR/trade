@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { number, string, oneOfType } from 'prop-types'
-import { useLogoBrans } from '../../../Hooks/'
+import { useLogoBrans } from '../../../Hooks'
+import { removeCommas } from '../../../utils'
 function CardItems ({ marca, size, descripcion, grados, ean, cajaporpallet, url }) {
   const logosBrands = useLogoBrans()
   const [imgBrand, setImgBrand] = useState([])
@@ -23,7 +24,7 @@ function CardItems ({ marca, size, descripcion, grados, ean, cajaporpallet, url 
       <div className='card-product--body'>
         <div className='card-product--info'>
           {descripcion && <p className='card-product--info__title'>{descripcion}</p>}
-          {grados && <p className='card-product--info__alc'>{grados} Alc</p>}
+          {grados && <p className='card-product--info__alc'>{removeCommas(grados)} Alc</p>}
         </div>
         <div className='card-product--size'>
           {size === 'LITRO'

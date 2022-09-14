@@ -21,23 +21,25 @@ export default function Login ({ setIsLogin }) {
     }
   }
   return (
-    <div className='login-container 2xl:max-w-screen-2xl mx-auto'>
-      <div className='login-container-navbar'></div>
-      <div className='login-container-body'>
-        <div className='login-container-body--logo'>
-          <img src={imgecatalogotrans} alt="image aca" className='filter-content--header__image--src' />
-        </div>
-        <div className='login-container-body--form'>
-          <form onSubmit={handleSubmit(onSubmit)} className='login-container-body--form__container'>
-            <img src={logo} alt="image aca" className='login-container-body--form__container__image--src' />
-            <input className='form-input-default' placeholder='Correo electrónico' {...register('email', { required: true })} />
-            {errors.exampleRequired && <span>Este campo es requerido</span>}
-            <input className='bg-yellow form-btn-start-sesion' value="Iniciar sesión" type='submit' />
-            {/* <a className='form-btn-forgot-passwprd' href='/'>Olvidé Contraseña</a> */}
-          </form>
+    <>
+      <div className='login-container 2xl:max-w-screen-2xl mx-auto'>
+        <div className='login-container-navbar'></div>
+        <div className='login-container-body'>
+          <div className='login-container-body--logo'>
+            <img src={imgecatalogotrans} alt="image aca" className='filter-content--header__image--src' />
+          </div>
+          <div className='login-container-body--form'>
+            <form onSubmit={handleSubmit(onSubmit)} className='login-container-body--form__container'>
+              <img src={logo} alt="image aca" className='login-container-body--form__container__image--src' />
+              <input className='form-input-default' placeholder='Correo electrónico' {...register('email', { required: true })} />
+              {errors.exampleRequired && <span>Este campo es requerido</span>}
+              <input className='bg-yellow form-btn-start-sesion' value="Iniciar sesión" type='submit' />
+              {/* <a className='form-btn-forgot-passwprd' href='/'>Olvidé Contraseña</a> */}
+            </form>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 Login.propTypes = {
