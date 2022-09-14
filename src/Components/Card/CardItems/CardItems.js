@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { number, string, oneOfType } from 'prop-types'
 import { useLogoBrans } from '../../../Hooks/'
-function CardItems ({ marca, size, descripcion, grados, ean, cajaporpallet, url }) {
+function CardItems ({ keymain, size, descripcion, grados, ean, cajaporpallet, url }) {
   const logosBrands = useLogoBrans()
   const [imgBrand, setImgBrand] = useState([])
   useEffect(() => {
-    const imageBrand = logosBrands.filter((e) => e.marca === marca)
+    const imageBrand = logosBrands.filter((e) => e.keymain === keymain)
     if (imageBrand.length > 0) {
       setImgBrand(imageBrand[0].urlimagen)
     } else {
@@ -48,11 +48,12 @@ CardItems.defaultProps = {
 
 CardItems.propTypes = {
   marca: string.isRequired,
+  keymain: string.isRequired,
   size: oneOfType([number, string]),
   descripcion: string.isRequired,
   grados: number.isRequired,
   ean: oneOfType([number, string]),
-  cajaporpallet: number.isRequired,
+  cajaporpallet: number,
   url: string
 }
 

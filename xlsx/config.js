@@ -32,10 +32,6 @@ export default function config () {
       users: [
         '../xlsx/usuarios-catalogo-spmk.xlsx',
         'local'
-      ],
-      logos: [
-        '../xlsx/usuarios-catalogo-spmk.xlsx',
-        'local'
       ]
     },
     {
