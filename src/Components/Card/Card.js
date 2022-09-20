@@ -1,21 +1,10 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import { Banner, Login, Select } from '../../Components/index'
 import CardItems from './CardItems/CardItems'
-import { useReadProducts, useReadBanner, useCookieValidate } from '../../Hooks/'
+import { useReadProducts, useReadBanner, useCookieValidate, useListSelect } from '../../Hooks/'
 import { removeCapitalSpace } from '../../utils'
 import { useParams, useLocation, useNavigate } from 'react-router-dom'
 import imgecatalogo from '../../images/catalogo.svg'
-
-const useListSelect = (arraylist, value) => {
-  const auxArray = []
-  if (value === 'brand') {
-    arraylist.map((lis) => auxArray.push(lis.marca))
-  } else if (value === 'category') {
-    arraylist.map((lis) => auxArray.push(lis.categoria))
-  }
-  const listSelect = [...new Set(auxArray)]
-  return listSelect
-}
 
 function Card () {
   const locationUrl = useLocation().pathname
@@ -42,11 +31,13 @@ function Card () {
     if (event.target.value === 'all') {
       const initP = products.map(p => p)
       const category = useListSelect(products, 'category')
+      const brand = useListSelect(products, 'brand')
 
       setBannerItem('')
       setIsBanner(false)
       setProduct(initP)
       setListCategory(category)
+      setListBrand(brand)
     } else {
       p = products.filter((e) => removeCapitalSpace(e.marca) === event.target.value)
       const category = useListSelect(p, 'category')
@@ -61,12 +52,14 @@ function Card () {
   const handleChange2 = event => {
     if (event.target.value === 'all') {
       const brand = useListSelect(products, 'brand')
+      const category = useListSelect(products, 'category')
       const initP = products.map(p => p)
 
       setBannerItem('')
       setIsBanner(false)
       setProduct(initP)
       setListBrand(brand)
+      setListCategory(category)
     } else {
       p = products.filter((e) => removeCapitalSpace(e.keycat) === event.target.value)
       const brand = useListSelect(p, 'brand')
