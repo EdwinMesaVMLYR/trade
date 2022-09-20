@@ -7,23 +7,35 @@ export default function config () {
         'local'
       ],
       products: [
-        '../xlsx/catalogo-produtos-spmk.xlsx',
+        '../xlsx/CATALOGOPRODUCTOSSPMK.xlsx',
         'local'
       ],
       users: [
         '../xlsx/usuarios-catalogo-spmk.xlsx',
         'local'
+      ],
+      logos: [
+        '../xlsx/usuarios-catalogo-spmk.xlsx',
+        'local'
       ]
     },
     {
-      name: 'koe',
+      name: 'koa',
       banner: [
-        '../xlsx/banner-marcas-spmk.xlsx',
+        '../xlsx/BANNERSMARCASKOA-KOE.xlsx',
         'local'
       ],
       products: [
-        'https://sheet.best/api/sheets/2ba54fe3-6a0a-4842-b40a-93f8c0e6b6f7',
-        'rest'
+        '../xlsx/KOACATALOGOPRODUCTOS.xlsx',
+        'local'
+      ],
+      users: [
+        '../xlsx/usuarios-catalogo-spmk.xlsx',
+        'local'
+      ],
+      logos: [
+        '../xlsx/usuarios-catalogo-spmk.xlsx',
+        'local'
       ]
     },
     {

@@ -4,6 +4,7 @@ import Banner from './Banner/Banner'
 import Card from './Card/Card'
 import Login from './Login/Login'
 import Select from './Select/Select'
+import headSelect from './headselect/headSelect'
 
 export {
   Header,
@@ -11,5 +12,6 @@ export {
   Banner,
   Card,
   Login,
-  Select
+  Select,
+  headSelect
 }

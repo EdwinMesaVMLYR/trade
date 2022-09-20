@@ -1,73 +1,138 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 import { Banner, Login, Select } from '../../Components/index'
 import CardItems from './CardItems/CardItems'
-import { useReadProducts, useReadBanner } from '../../Hooks/'
+import { useReadProducts, useReadBanner, useCookieValidate } from '../../Hooks/'
 import { removeCapitalSpace } from '../../utils'
-import { useParams, useNavigate, useLocation } from 'react-router-dom'
+import { useParams, useLocation, useNavigate } from 'react-router-dom'
+import imgecatalogo from '../../images/catalogo.svg'
+
+const useListSelect = (arraylist, value) => {
+  const auxArray = []
+  if (value === 'brand') {
+    arraylist.map((lis) => auxArray.push(lis.marca))
+  } else if (value === 'category') {
+    arraylist.map((lis) => auxArray.push(lis.categoria))
+  }
+  const listSelect = [...new Set(auxArray)]
+  return listSelect
+}
 
 function Card () {
-  const navigate = useNavigate()
-  const { acronym } = useParams()
   const locationUrl = useLocation().pathname
   localStorage.setItem('url', locationUrl)
-  const [isLogin, setIsLogin] = useState(true)
+
+  const navigate = useNavigate()
+  const { acronym } = useParams()
+
+  let p = []
+  const [product, setProduct] = useState([])
   const products = useReadProducts(acronym)
-  const productsInfo = []
+
+  const [isLogin, setIsLogin] = useState(false)
   const [selected, setSelected] = useState({})
-  const [product, setProduct] = useState({})
-  const [bannerItem, setBannerItem] = useState({})
-  const [isBanner, setIsBanner] = useState(false)
+
   const banners = useReadBanner(acronym)
-  products.map((cat) => productsInfo.push(cat.marca))
-  const productsMarca = [...new Set(productsInfo)]
+  const [isBanner, setIsBanner] = useState(false)
+  const [bannerItem, setBannerItem] = useState({})
+
+  const [listbrand, setListBrand] = useState([])
+  const [listcategory, setListCategory] = useState([])
+
   const handleChange = event => {
-    let product = []
     if (event.target.value === 'all') {
+      const initP = products.map(p => p)
+      const category = useListSelect(products, 'category')
+
       setBannerItem('')
       setIsBanner(false)
+      setProduct(initP)
+      setListCategory(category)
     } else {
-      product = products.filter((e) => removeCapitalSpace(e.marca) === event.target.value)
+      p = products.filter((e) => removeCapitalSpace(e.marca) === event.target.value)
+      const category = useListSelect(p, 'category')
+
       setBannerItem(banners.filter((e) => e.keymain === event.target.value))
       setIsBanner(true)
+      setProduct(p)
+      setListCategory(category)
     }
-    setProduct(product)
     setSelected(event.target.value)
   }
+  const handleChange2 = event => {
+    if (event.target.value === 'all') {
+      const brand = useListSelect(products, 'brand')
+      const initP = products.map(p => p)
+
+      setBannerItem('')
+      setIsBanner(false)
+      setProduct(initP)
+      setListBrand(brand)
+    } else {
+      p = products.filter((e) => removeCapitalSpace(e.keycat) === event.target.value)
+      const brand = useListSelect(p, 'brand')
+
+      setBannerItem('')
+      setIsBanner(false)
+      setProduct(p)
+      setListBrand(brand)
+    }
+    setSelected(event.target.value)
+  }
+
   if (product.length <= 0 && isBanner) {
     navigate('/404')
   }
   if (bannerItem.length <= 0 && isBanner) {
     navigate('/404')
   }
+
   useEffect(() => {
-    document.cookie.replace(/(?:(?:^|.*;\s*)loginopen\s*\s*([^;]*).*$)|^.*$/, '$1') ? setIsLogin(false) : setIsLogin(true)
-  }, [])
+    const validateLogin = async () => {
+      const loginIs = await useCookieValidate(acronym)
+      setIsLogin(loginIs)
+    }
+    const brand = useListSelect(products, 'brand')
+    const category = useListSelect(products, 'category')
+    const initP = products.map(p => p)
+
+    setListBrand(brand)
+    setListCategory(category)
+    validateLogin()
+    setProduct(initP)
+  }, [products])
 
   const getMarkup = () => {
     let markup = ''
-    if (isLogin) {
+    if (!isLogin) {
       markup = <Login setIsLogin={setIsLogin}/>
     } else {
       markup =
       <div>
         {isBanner && <Banner bannerItem={bannerItem[0]}/> }
-        <Select productsMarca={productsMarca} selected={selected} handleChange={handleChange}/>
+        <div className='filter-content 2xl:max-w-screen-xl mx-auto'>
+          <div className='filter-content--header'>
+            <div className='filter-content--header__image'>
+              <img src={imgecatalogo} alt="image aca" className='filter-content--header__image--src' />
+            </div>
+            <div className='filter-content--header__title'>
+              <h2 className='filter-content--header__title--text'>{acronym}</h2>
+              </div>
+            <div className='filter-content--filter'>
+              <Select list={listbrand} selected={selected} handleChange={handleChange} text='Todas las marcas'/>
+              <Select list={listcategory} selected={selected} handleChange={handleChange2} text='Todas las categorias'/>
+            </div>
+          </div>
+        </div>
         <div className='filter-content--card'>
           {setSelected}
-          {isBanner === false
-            ? products.map((article, i) => (
-                <CardItems {...article} key={i}></CardItems>
-            ))
-            : product.map((article, i) => (
-              <CardItems {...article} key={i}></CardItems>
-            ))}
+          {product && product.map((article, i) => (
+            <CardItems {...article} key={i}></CardItems>
+          ))}
         </div>
       </div>
     }
     return markup
   }
-
-  return <div>{getMarkup()}</div>
+  return <Fragment>{getMarkup()}</Fragment>
 }
-
 export default Card

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { number, string, oneOfType } from 'prop-types'
 import { useLogoBrans } from '../../../Hooks/'
-function CardItems ({ keymain, size, descripcion, grados, ean, cajaporpallet, url }) {
+function CardItems ({ keymain, tamano, descripcion, grados, eanintermedio, cajasporpallet, imagen }) {
   const logosBrands = useLogoBrans()
   const [imgBrand, setImgBrand] = useState([])
   useEffect(() => {
@@ -18,7 +18,7 @@ function CardItems ({ keymain, size, descripcion, grados, ean, cajaporpallet, ur
         {imgBrand && <img src={imgBrand} alt={descripcion} className='card-product--logo__image' />}
       </div>
       <div className='card-product--image hover:from-gray-200 to-transparent bg-gradient-to-t'>
-        {url && <img src={url} alt="img prdducto" className='card-product__image'/>}
+        {imagen && <img src={imagen} alt="img prdducto" className='card-product__image'/>}
       </div>
       <div className='card-product--body'>
         <div className='card-product--info'>
@@ -26,16 +26,16 @@ function CardItems ({ keymain, size, descripcion, grados, ean, cajaporpallet, ur
           {grados && <p className='card-product--info__alc'>{grados} Alc</p>}
         </div>
         <div className='card-product--size'>
-          {size === 'LITRO'
+          {tamano === 'LITRO'
             ? <p className='card-product--size__text'>LITRO</p>
-            : <p className='card-product--size__text'>{size} cc</p>
+            : <p className='card-product--size__text'>{tamano} cc</p>
           }
         </div>
         <div className='card-product--description'>
-          {cajaporpallet && (<p className='card-product--description__text'>{cajaporpallet} cajas por pallet</p>)}
+          {cajasporpallet && (<p className='card-product--description__text'>{cajasporpallet} cajas por pallet</p>)}
         </div>
         <div className='card-product--barcode'>
-          {ean && <img src={`https://barcode.tec-it.com/barcode.ashx?data=${ean.toString()}&code=Code128&translate-esc=on`} alt="img prdducto" className='card-product--barcode__image'/>}
+          {eanintermedio && <img src={`https://barcode.tec-it.com/barcode.ashx?data=${eanintermedio.toString()}&code=Code128&translate-esc=on`} alt="img prdducto" className='card-product--barcode__image'/>}
         </div>
       </div>
     </div>
@@ -49,12 +49,12 @@ CardItems.defaultProps = {
 CardItems.propTypes = {
   marca: string.isRequired,
   keymain: string.isRequired,
-  size: oneOfType([number, string]),
+  tamano: oneOfType([number, string]),
   descripcion: string.isRequired,
   grados: number.isRequired,
-  ean: oneOfType([number, string]),
-  cajaporpallet: number,
-  url: string
+  eanintermedio: oneOfType([number, string]),
+  cajasporpallet: number,
+  imagen: string
 }
 
 export default CardItems

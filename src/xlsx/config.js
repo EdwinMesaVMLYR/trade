@@ -7,7 +7,7 @@ export default function config () {
         'local'
       ],
       products: [
-        '../xlsx/catalogo-produtos-spmk.xlsx',
+        '../xlsx/CATALOGOPRODUCTOSSPMK.xlsx',
         'local'
       ],
       users: [
@@ -22,18 +22,14 @@ export default function config () {
     {
       name: 'koa',
       banner: [
-        '../xlsx/banner-marcas-koa-koe.xlsx',
+        '../xlsx/BANNERSMARCASKOA-KOE.xlsx',
         'local'
       ],
       products: [
-        '../xlsx/koa-catalogos-productos.xlsx',
+        '../xlsx/KOACATALOGOPRODUCTOS.xlsx',
         'local'
       ],
       users: [
-        '../xlsx/usuarios-catalogo-spmk.xlsx',
-        'local'
-      ],
-      logos: [
         '../xlsx/usuarios-catalogo-spmk.xlsx',
         'local'
       ]

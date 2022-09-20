@@ -5,19 +5,18 @@ import { useUsers, useCookie } from '../../Hooks/'
 import logo from '../../logo.svg'
 import { useParams } from 'react-router-dom'
 import imgecatalogotrans from '../../images/logo-white.svg'
-
 export default function Login ({ setIsLogin }) {
   const { acronym } = useParams()
   const user = useUsers(acronym)
   const [erroMails, setErroMails] = useState(true)
   const { register, handleSubmit, formState: { errors } } = useForm()
-  const onSubmit = (data) => {
-    const email = user.filter((e) => e.MAIL === data.email)
+  const onSubmit = async (data) => {
+    const email = user.filter((e) => e.mail === data.email)
     if (email.length > 0) {
-      useCookie()
-      setIsLogin(false)
-    } else {
       setIsLogin(true)
+      await useCookie(acronym, email)
+    } else {
+      setIsLogin(false)
       setErroMails(false)
     }
   }

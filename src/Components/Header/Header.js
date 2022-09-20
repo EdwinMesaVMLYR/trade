@@ -2,18 +2,17 @@ import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import logo from '../../logo.svg'
 import imgecatalogo from '../../images/catalogo.svg'
-// import { useGetUrl } from '../../Hooks'
 
 function Header () {
   const locationUrl = useLocation().pathname
-  // const locationHost = window.location.host
+  const url = localStorage.getItem('url')
   return (
     <header className='header'>
       <div className="navbar">
       </div>
       <nav className='navbar-brand 2xl:max-w-screen-xl mx-auto'>
         <div className='navbar-logo'>
-          <a href="/spmk">
+          <a href={url}>
             <figure>
               <img src={logo} alt="Piramide de Precios" className='logo-header'/>
             </figure>
@@ -25,7 +24,7 @@ function Header () {
               ? <>
                 <Link className='navbar-nav-text' to="/piramide-de-precios"> PIRAMIDE DE PRECIOS </Link>
               </>
-              : <Link to="/">
+              : <Link to={url}>
                 <figure>
                   <img src={imgecatalogo} alt="Catálogo Cervecería ABInBev" className='logo-catalogo-header' />
                 </figure>
