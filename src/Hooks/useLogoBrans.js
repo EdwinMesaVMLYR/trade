@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { read, utils } from 'xlsx'
-import url from '../xlsx/logo-marcas.xlsx'
+import url from '../xlsx/spmk/logo-marcas.xlsx'
 import { removeCapitalSpace } from '../utils'
 
 export function useLogoBrans () {

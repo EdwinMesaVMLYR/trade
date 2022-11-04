@@ -22,7 +22,7 @@ export function useGetData (findArray, treating, acronym) {
         const ws = wb.Sheets[wb.SheetNames[0]]
         const d = utils.sheet_to_json(ws)
         if (treating) {
-          const dwt = d.map((p) => ({ ...objectKeysTreating(p), keymain: removeCapitalSpace(p.MARCA), keycat: removeCapitalSpace(p.CATEGORIA) }))
+          const dwt = d.map((p) => ({ ...objectKeysTreating(p), keymain: removeCapitalSpace(p.Marca), keycat: removeCapitalSpace(p.CATEGORIA) }))
           setData(dwt)
         } else if (treating === false) {
           const dwt = d.map((p) => ({ ...objectKeysTreating(p), trade: acronym }))
@@ -35,6 +35,7 @@ export function useGetData (findArray, treating, acronym) {
         .catch((response) => {
           console.log(response.detail, response.statusText)
         })
+        .then(data => data.map((p) => ({ ...objectKeysTreating(p), keymain: removeCapitalSpace(p.MARCA), keycat: removeCapitalSpace(p.CATEGORIA) })))
         .then(data => setData(data))
     }
   }, [])

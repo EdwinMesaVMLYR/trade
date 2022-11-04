@@ -45,7 +45,7 @@ function BannerItem ({ bannerItem }) {
                   </div>
                   <div className='card--banner__body--details--right'>
                     {abv && <span className='card--banner__body--dr-data'>ABV: {abv}</span>}
-                      {ritual !== '-' && <span className='card--banner__body--dr-data'>Ritual: {ritual}</span>}
+                    {ritual && <span className='card--banner__body--dr-data'>Ritual: {ritual}</span>}
                     {ibu && <span className='card--banner__body--dr-data'>IBU: {ibu}</span>}
                   </div>
                 </div>

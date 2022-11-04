@@ -1,5 +1,5 @@
 import React, { useEffect, useState, Fragment } from 'react'
-import imagePyramide from '../../images/pyramide.jpg'
+import imagePyramide from '../../images/pyramide.png'
 import { useCookieValidate } from '../../Hooks/'
 
 function Pyramid () {
@@ -19,7 +19,7 @@ function Pyramid () {
   } else {
     markup =
     <div className='pyramide 2xl:max-w-screen-xl mx-auto'>
-      <div className='pyramide-header'>PIRÁMIDE DE PRECIOS</div>
+      <div className='pyramide-header px-[11rem]'>PIRÁMIDE DE PRECIOS</div>
       <div className='pyramide-image'>
         <img src={imagePyramide} alt="Pirámide de Precios" className='pyramide-image--src' />
       </div>

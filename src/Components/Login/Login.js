@@ -37,7 +37,7 @@ export default function Login ({ setIsLogin }) {
               {erroMails && <input className='form-input-default' placeholder='Correo electrónico' {...register('email', { required: true, pattern: /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/i })} />}
               {errors.email && <span>Este campo es un email y es requerido.</span>}
               {erroMails && <input className='bg-yellow form-btn-start-sesion' value="Iniciar sesión" type='submit' />}
-              {erroMails !== true && <p>ERROR</p>}
+              {erroMails !== true && <p className='pb-2 text-center'>ERROR</p>}
               {erroMails !== true && <button className='bg-yellow form-btn-start-sesion' onClick={goLogin}>Regresar a home</button>}
               {/* <a className='form-btn-forgot-passwprd' href='/'>Olvidé Contraseña</a> */}
             </form>

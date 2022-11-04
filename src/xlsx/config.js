@@ -3,46 +3,58 @@ export default function config () {
     {
       name: 'spmk',
       banner: [
-        '../xlsx/banner-marcas-spmk.xlsx',
+        '../xlsx/spmk/banner-marcas-spmk.xlsx',
         'local'
       ],
       products: [
-        '../xlsx/CATALOGOPRODUCTOSSPMK.xlsx',
+        '../xlsx/spmk/CATALOGOPRODUCTOSSPMK.xlsx',
         'local'
       ],
       users: [
-        '../xlsx/usuarios-catalogo-spmk.xlsx',
+        '../xlsx/spmk/usuarios-catalogo-spmk.xlsx',
         'local'
       ],
       logos: [
-        '../xlsx/usuarios-catalogo-spmk.xlsx',
+        '../xlsx/spmk/usuarios-catalogo-spmk.xlsx',
         'local'
       ]
     },
     {
       name: 'koa',
       banner: [
-        '../xlsx/BANNERSMARCASKOA-KOE.xlsx',
+        '../xlsx/koa/BANNERS-MARCAS-KOA-KOE.xlsx',
         'local'
       ],
       products: [
-        '../xlsx/KOACATALOGOPRODUCTOS.xlsx',
+        '../xlsx/koa/KOACATALOGOPRODUCTOS.xlsx',
         'local'
       ],
       users: [
-        '../xlsx/usuarios-catalogo-spmk.xlsx',
+        '../xlsx/koa/usuarios-catalogoKOA.xlsx',
+        'local'
+      ],
+      logos: [
+        '../xlsx/koa/LOGOS-DE-MARCAS.xlsx',
         'local'
       ]
     },
     {
-      name: 'koe2',
+      name: 'koe',
       banner: [
-        '../xlsx/banner-marcas-spmk.xlsx',
+        '../xlsx/koe/BANNERS-MARCAS-KOA-KOE.xlsx',
         'local'
       ],
       products: [
-        'https://sheet.best/api/sheets/f4eff6ea-75a7-45ef-8e78-721bc293c90a',
-        'rest'
+        '../xlsx/koe/KOE-CATALOGO-PRODUCTOS.xlsx',
+        'local'
+      ],
+      users: [
+        '../xlsx/koe/usuarios-catalogo-KOE.xlsx',
+        'local'
+      ],
+      logos: [
+        '../xlsx/koe/LOGOS-DE-MARCAS.xlsx',
+        'local'
       ]
     }
   ]
