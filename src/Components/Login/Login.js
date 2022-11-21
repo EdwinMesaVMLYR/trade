@@ -25,7 +25,7 @@ export default function Login ({ setIsLogin }) {
   }
   return (
     <>
-      <div className='login-container 2xl:max-w-screen-2xl mx-auto'>
+      <div className='login-container 1xl:max-w-screen-2xl mx-auto'>
         <div className='login-container-navbar'></div>
         <div className='login-container-body'>
           <div className='login-container-body--logo'>

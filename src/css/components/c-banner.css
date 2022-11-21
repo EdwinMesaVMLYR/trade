@@ -1,16 +1,16 @@
 .banner {
-  @apply pb-[110%] md:bg-bannerBrands bg-cover flex items-center justify-center relative md:pb-[initial] md:min-h-[65rem];
+  @apply pb-[135%] md:bg-bannerBrands bg-cover flex items-center justify-center relative md:pb-[initial] md:min-h-[42rem] bg-[length:100%_100%];
 }
 .banner--content {
-  @apply flex items-center flex-col relative md:flex-row w-full md:min-h-[65rem] md:after:content-[""] md:after:absolute md:after:block md:after:bg-whiteb md:after:w-[50%] md:after:h-[100%] md:after:rounded-tl-[3rem] md:after:rounded-bl-[3rem] md:after:right-[0] md:after:z-[0] md:after:opacity-60;
+  @apply flex items-center flex-col relative md:flex-row w-full md:min-h-[42rem] md:after:content-[""] md:after:absolute md:after:block md:after:bg-whiteb md:after:w-[50%] md:after:h-[100%] md:after:rounded-tl-[3rem] md:after:rounded-bl-[3rem] md:after:right-[0] md:after:z-[0] md:after:opacity-60 md:after:invisible
 }
 
 .banner--content__image {
-  @apply w-full md:min-h-[65rem];
+  @apply w-full md:min-h-[42rem];
 }
 
 .banner--content__image--background {
-  @apply min-h-[45rem] md:min-h-[65rem] object-cover
+  @apply min-h-[42rem] md:min-h-[42rem] object-cover
 }
 
 .banner--content__body {
@@ -22,9 +22,9 @@
 }
 
 .banner--content__right--image {
-  @apply w-full p-[10%] md:h-[45rem] md:p-[initial] md:w-[auto];
+  @apply w-full p-[10%] md:h-[42rem] md:p-[5%] md:w-[auto];
 }
 
 .banner--content__left {
-  @apply flex items-center justify-center min-h-[45rem] w-full;
+  @apply flex items-center justify-center min-h-[42rem] w-full;
 }

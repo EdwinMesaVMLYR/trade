@@ -15,7 +15,7 @@
 }
 
 .login-container-body--form__container {
-  @apply rounded-lg flex flex-col justify-center bg-white shadow-2x1 h-[45rem] px-[2rem] md:w-[35rem] md:px-[3rem]
+  @apply rounded-lg flex flex-col justify-center text-center bg-white shadow-2x1 h-[45rem] px-[2rem] md:w-[35rem] md:px-[3rem]
 }
 
 .login-container-body--form__container__image--src {
