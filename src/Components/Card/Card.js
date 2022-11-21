@@ -5,7 +5,8 @@ import { useReadProducts, useReadBanner, useCookieValidate, useListSelect } from
 import { removeCapitalSpace } from '../../utils'
 import { useParams, useLocation } from 'react-router-dom'
 import imgecatalogo from '../../images/catalogo.svg'
-import logo from '../../images/logoKOA.png'
+import logokoa from '../../images/logoKOA.png'
+import logokoe from '../../images/logoKOE.png'
 
 function Card () {
   const locationUrl = useLocation().pathname
@@ -103,7 +104,8 @@ function Card () {
             <div className='filter-content--header__title'>
               <h2 className={`filter-content--header__title--text ${acronym}`}>
                 {acronym === 'spmk' && acronym}
-                {acronym !== 'spmk' && <img src={logo} title={acronym} alt={acronym} className='mx-auto'></img>}
+                {acronym === 'koa' && <img src={logokoa} title={acronym} alt={acronym} className='mx-auto'></img>}
+                {acronym === 'koe' && <img src={logokoe} title={acronym} alt={acronym} className='mx-auto'></img>}
               </h2>
               </div>
             <div className='filter-content--filter'>

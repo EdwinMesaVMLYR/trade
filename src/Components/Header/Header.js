@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import logo from '../../logo.svg'
 import imgecatalogo from '../../images/catalogo.svg'
 import cocacolaandina from '../../images/cocacolaandina.png'
+import cocacolaembonor from '../../images/cocaclaembonor.png'
 
 function Header () {
   const locationUrl = useLocation().pathname
@@ -28,7 +29,9 @@ function Header () {
               : <Link to={url}>
                 <figure className='flex'>
                   <img src={imgecatalogo} alt="Catálogo Cervecería ABInBev" className='logo-catalogo-header' />
-                  {url !== '/spmk' && <img src={cocacolaandina} alt="cocacola andina" className='pyramide-image--src pl-10' />}
+                  {url === '/spmk' && <p></p>}
+                  {url === '/koa' && <img src={cocacolaandina} alt="cocacola andina" className='pyramide-image--src pl-10' />}
+                  {url === '/koe' && <img src={cocacolaembonor} alt="cocacola andina" className='pyramide-image--src pl-10' />}
                 </figure>
               </Link>
             }
