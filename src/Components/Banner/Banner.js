@@ -4,7 +4,9 @@ import BannerItem from './BannerItem/BannerItem'
 
 function Banner ({ bannerItem }) {
   return (
-    <BannerItem bannerItem={bannerItem}/>
+    <>
+      {bannerItem && <BannerItem bannerItem={bannerItem}/>}
+    </>
   )
 }
 

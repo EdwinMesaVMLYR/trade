@@ -3,14 +3,14 @@ import { Banner, Login, Select } from '../../Components/index'
 import CardItems from './CardItems/CardItems'
 import { useReadProducts, useReadBanner, useCookieValidate, useListSelect } from '../../Hooks/'
 import { removeCapitalSpace } from '../../utils'
-import { useParams, useLocation, useNavigate } from 'react-router-dom'
+import { useParams, useLocation } from 'react-router-dom'
 import imgecatalogo from '../../images/catalogo.svg'
+import logo from '../../images/logoKOA.png'
 
 function Card () {
   const locationUrl = useLocation().pathname
   localStorage.setItem('url', locationUrl)
 
-  const navigate = useNavigate()
   const { acronym } = useParams()
 
   let p = []
@@ -72,13 +72,6 @@ function Card () {
     setSelected(event.target.value)
   }
 
-  if (product.length <= 0 && isBanner) {
-    navigate('/404')
-  }
-  if (bannerItem.length <= 0 && isBanner) {
-    navigate('/404')
-  }
-
   useEffect(() => {
     const validateLogin = async () => {
       const loginIs = await useCookieValidate(acronym)
@@ -108,7 +101,10 @@ function Card () {
               <img src={imgecatalogo} alt="image aca" className='filter-content--header__image--src' />
             </div>
             <div className='filter-content--header__title'>
-              <h2 className='filter-content--header__title--text'>{acronym}</h2>
+              <h2 className={`filter-content--header__title--text ${acronym}`}>
+                {acronym === 'spmk' && acronym}
+                {acronym !== 'spmk' && <img src={logo} title={acronym} alt={acronym} className='mx-auto'></img>}
+              </h2>
               </div>
             <div className='filter-content--filter'>
               <Select list={listbrand} selected={selected} handleChange={handleChange} text='Todas las marcas'/>

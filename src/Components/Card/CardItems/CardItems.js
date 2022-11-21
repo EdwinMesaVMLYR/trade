@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { number, string, oneOfType } from 'prop-types'
 import { useLogoBrans } from '../../../Hooks/'
+import { useParams } from 'react-router-dom'
 function CardItems ({ keymain, tamano, descripcion, grados, eanintermedio, cajasporpallet, imagen }) {
   const logosBrands = useLogoBrans()
   const [imgBrand, setImgBrand] = useState([])
+  const { acronym } = useParams()
+
   useEffect(() => {
     const imageBrand = logosBrands.filter((e) => e.keymain === keymain)
     if (imageBrand.length > 0) {
@@ -31,12 +34,13 @@ function CardItems ({ keymain, tamano, descripcion, grados, eanintermedio, cajas
             : <p className='card-product--size__text'>{tamano} cc</p>
           }
         </div>
-        <div className='card-product--description'>
+        <div className='card-product--description flex justify-between'>
           {cajasporpallet && (<p className='card-product--description__text'>{cajasporpallet} cajas por pallet</p>)}
+          {acronym !== 'spmk' && <p className='card-product--description__text uppercase'>COD {acronym}: {eanintermedio}</p>}
         </div>
-        <div className='card-product--barcode'>
+        {acronym === 'spmk' && <div className='card-product--barcode'>
           {eanintermedio && <img src={`https://barcode.tec-it.com/barcode.ashx?data=${eanintermedio.toString()}&code=Code128&translate-esc=on`} alt="img prdducto" className='card-product--barcode__image'/>}
-        </div>
+        </div>}
       </div>
     </div>
   )
@@ -53,7 +57,7 @@ CardItems.propTypes = {
   descripcion: string.isRequired,
   grados: number.isRequired,
   eanintermedio: oneOfType([number, string]),
-  cajasporpallet: number,
+  cajasporpallet: oneOfType([number, string]),
   imagen: string
 }
 
