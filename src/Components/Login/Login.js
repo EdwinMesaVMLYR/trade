@@ -11,7 +11,7 @@ export default function Login ({ setIsLogin }) {
   const [erroMails, setErroMails] = useState(true)
   const { register, handleSubmit, formState: { errors } } = useForm()
   const onSubmit = async (data) => {
-    const email = user.filter((e) => e.mail === data.email)
+    const email = user.filter((e) => e.mail === data.email.toLowerCase())
     if (email.length > 0) {
       setIsLogin(true)
       await useCookie(acronym, email)
