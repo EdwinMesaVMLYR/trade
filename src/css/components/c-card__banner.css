@@ -22,8 +22,20 @@
   @apply bg-white px-[3rem] py-[2rem] rounded-bl-[1.5rem] rounded-br-[1.5rem] shadow-1x2 md:px-[1.8rem];
 }
 
+.card--banner__body--content {
+  @apply md:flex w-full
+}
+
+.card--banner__body--infoLeft {
+  @apply md:w-[50%] md:pr-[5%] md:relative md:after:content-[""] md:after:absolute md:after:block md:after:bg-blue md:after:w-[.2rem] md:after:h-[100%] md:after:top-[-2rem] md:after:right-[0]
+}
+
+.card--banner__body--infoRight {
+  @apply md:w-[50%] md:pl-[5%]
+}
+
 .card--banner__body--info--text {
-  @apply text-blue text-base font-robotoB;
+  @apply text-blue text-base font-robotoB leading-[1.2] mb-[1rem];
 }
 
 .card--banner__body--details {
@@ -47,7 +59,11 @@
 }
 
 .card--banner__body--dc-data {
-  @apply font-robotoB text-base opacity-70 text-gray my-[.5rem];;
+  @apply font-robotoB text-base opacity-70 text-gray my-[.5rem];
+}
+
+.card--banner__body--infoLeftDl--data {
+  @apply font-robotoB text-base opacity-70 text-gray my-[.5rem] leading-[1.2];
 }
 
 .card--banner__body--details--right {

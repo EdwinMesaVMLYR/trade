@@ -3,7 +3,62 @@ import { string, oneOfType, object } from 'prop-types'
 import { removeCommas } from '../../../utils'
 
 function BannerItem ({ bannerItem }) {
-  const { marca, linkskubaner, urlbackground, atributos, color, origen, ritual, Estilo, abv, ibu } = bannerItem
+  const { marca, linkskubaner, urlbackground, atributos, puntosdemercado, color, origen, ritual, Estilo, abv, ibu } = bannerItem
+  const url = localStorage.getItem('url')
+  const getMarkupBannerInfo = () => {
+    let markup = ''
+    if (url === '/spmk') {
+      markup =
+      <div className='card--banner__body'>
+        <div className='card--banner__body--info'>
+          <p className='card--banner__body--info--text'>ARGUMENTO DE VENTA</p>
+        </div>
+        <div className='card--banner__body--details'>
+          {abv && <div className='card--banner__body--details--left'>
+              <h3 className='card--banner__body--dl--points'>
+              {removeCommas(abv)}
+            </h3>
+            <span className='card--banner__body--dl--desc'>
+              PUNTOS DEL MERCADO
+            </span>
+          </div>}
+          <div className='card--banner__body--details--center'>
+            {url === '/spmk' && color && <span className='card--banner__body--dc-data'>Color: {color}</span>}
+            {Estilo && <span className='card--banner__body--dc-data'>Estilo: {Estilo}</span>}
+            {origen && <span className='card--banner__body--dc-data'>Origen: {origen}</span>}
+          </div>
+          <div className='card--banner__body--details--right'>
+            {abv && <span className='card--banner__body--dr-data'>ABV: {abv}</span>}
+            {ritual && <span className='card--banner__body--dr-data'>Ritual: {ritual}</span>}
+            {ibu && <span className='card--banner__body--dr-data'>IBU: {ibu}</span>}
+          </div>
+        </div>
+      </div>
+    } else {
+      markup =
+      <div className='card--banner__body'>
+        <div className='card--banner__body--content'>
+          <div className='card--banner__body--infoLeft'>
+            <p className='card--banner__body--info--text'>ARGUMENTO DE VENTA</p>
+            <span className='card--banner__body--infoLeftDl--data'>
+              {puntosdemercado}
+            </span>
+          </div>
+          <div className='card--banner__body--infoRight'>
+            <p className='card--banner__body--info--text'>ORIGEN</p>
+            <span className='card--banner__body--infoLeftDl--data'>
+              {origen}
+            </span>
+            <p className='card--banner__body--info--text  pt-[5%]'>PRINCIPALES COMPETIDORES</p>
+            <span className='card--banner__body--infoLeftDl--data'>
+              {color}
+            </span>
+          </div>
+        </div>
+      </div>
+    }
+    return markup
+  }
   return (
     <>
       <div className='banner 2xl:max-w-screen-2xl mx-auto'>
@@ -25,31 +80,7 @@ function BannerItem ({ bannerItem }) {
                   <h2 className='card--banner__header--detail--text'>{atributos}</h2>
                 </div>
               </div>)}
-              <div className='card--banner__body'>
-                <div className='card--banner__body--info'>
-                  <p className='card--banner__body--info--text'>ARGUMENTO DE VENTA</p>
-                </div>
-                <div className='card--banner__body--details'>
-                  {abv && <div className='card--banner__body--details--left'>
-                     <h3 className='card--banner__body--dl--points'>
-                      {removeCommas(abv)}
-                    </h3>
-                    <span className='card--banner__body--dl--desc'>
-                      PUNTOS DEL MERCADO
-                    </span>
-                  </div>}
-                  <div className='card--banner__body--details--center'>
-                    {color && <span className='card--banner__body--dc-data'>Color: {color}</span>}
-                    {Estilo && <span className='card--banner__body--dc-data'>Estilo: {Estilo}</span>}
-                    {origen && <span className='card--banner__body--dc-data'>Origen: {origen}</span>}
-                  </div>
-                  <div className='card--banner__body--details--right'>
-                    {abv && <span className='card--banner__body--dr-data'>ABV: {abv}</span>}
-                    {ritual && <span className='card--banner__body--dr-data'>Ritual: {ritual}</span>}
-                    {ibu && <span className='card--banner__body--dr-data'>IBU: {ibu}</span>}
-                  </div>
-                </div>
-              </div>
+                {getMarkupBannerInfo()}
             </div>
           </div>
           </div>
@@ -61,7 +92,6 @@ function BannerItem ({ bannerItem }) {
 
 BannerItem.propTypes = {
   bannerItem: oneOfType([object, string])
-
 }
 
 export default BannerItem
