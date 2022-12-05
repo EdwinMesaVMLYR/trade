@@ -7,7 +7,7 @@
 }
 
 .login-container-body {
-  @apply flex flex-col items-center justify-center bg-bakLogin min-h-screen md:min-h-[80rem]
+  @apply bg-cover flex flex-col items-center justify-center bg-bakLogin min-h-screen
 }
 
 .login-container-body--logo {
