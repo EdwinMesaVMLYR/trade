@@ -1,0 +1,7 @@
+.navigation-cat {
+  @apply h-[50vh] flex items-center justify-center flex-col md:flex-row
+}
+
+.navigation-item--link {
+  @apply block font-robotoI text-black text-[2rem] font-bold relative rounded-2xl mb-[2rem] py-[1rem] px-[1.5rem] border-[.2rem] border-[black] md:text-[4rem] md:ml-[2rem]
+}

@@ -8,6 +8,7 @@ import Layout from './Layout/Layout'
 import Pyramid from './pages/Pyramid/Pyramid'
 import Trade from './pages/Trade/Trade'
 import Notfound from './pages/404/404'
+import MenuCat from './Components/MenuCat/MenuCat'
 
 function App () {
   return (
@@ -15,7 +16,7 @@ function App () {
       <BrowserRouter>
         <Layout>
           <Routes>
-            <Route path="/" element={<Notfound />} />
+            <Route path="/" element={<MenuCat />} />
             <Route path="/:acronym" element={<Trade />} />
             <Route path="/koe/:acronym" element={<Trade />} />
             <Route path="/piramide-de-precios" element={<Pyramid />} />
