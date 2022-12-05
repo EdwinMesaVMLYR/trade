@@ -63,7 +63,7 @@
 }
 
 .card--banner__body--infoLeftDl--data {
-  @apply font-robotoB text-base opacity-70 text-gray my-[.5rem] leading-[1.2];
+  @apply font-robotoM text-xss opacity-70 text-gray my-[.5rem] leading-[1.2];
 }
 
 .card--banner__body--details--right {

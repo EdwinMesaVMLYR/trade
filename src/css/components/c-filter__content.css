@@ -19,5 +19,5 @@
 }
 
 .filter-content--card {
-  @apply flex flex-col flex-wrap justify-center my-[7rem] w-full md:flex-row md:gap-[3rem];
+  @apply flex flex-col flex-wrap justify-center my-[7rem] w-full md:flex-row md:gap-[3rem] 2xl:max-w-screen-xl mx-auto
 }
