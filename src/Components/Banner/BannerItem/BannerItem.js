@@ -3,7 +3,7 @@ import { string, oneOfType, object } from 'prop-types'
 import { removeCommas } from '../../../utils'
 
 function BannerItem ({ bannerItem }) {
-  const { marca, linkskubaner, urlbackground, atributos, puntosdemercado, color, origen, ritual, Estilo, abv, ibu } = bannerItem
+  const { marca, linkskubaner, linkdebackground, atributos, puntosdemercado, color, origen, ritual, Estilo, abv, ibu } = bannerItem
   const url = localStorage.getItem('url')
   const getMarkupBannerInfo = () => {
     let markup = ''
@@ -59,30 +59,32 @@ function BannerItem ({ bannerItem }) {
     }
     return markup
   }
+  console.log(bannerItem)
   return (
     <>
-      <div className='banner 2xl:max-w-screen-2xl mx-auto'>
+      <div className={`banner ${url === '/spmk' ? 'banner-full' : 'banner-small'} 2xl:max-w-screen-2xl mx-auto`}>
         <div className='banner--content'>
           <div className='banner--content__image'>
-            {urlbackground && <img src={urlbackground} alt={marca} className='banner--content__image--background' />}
+            {linkdebackground && <img src={linkdebackground} alt={marca} className='banner--content__image--background' />}
           </div>
           <div className='banner--content__body'>
             <div className='banner--content__left'>
-            {linkskubaner && <img src={linkskubaner} alt={marca} className='banner--content__right--image' />}
-          </div>
-          <div className='banner--content__right'>
-            <div className='card--banner'>
-              {atributos && (<div className='card--banner__header'>
-                <div className='card--banner__header--info'>
-                  <span className='card--banner__header--info--text'>ATRIBUTOS</span>
-                </div>
-                <div className='card--banner__header--detail'>
-                  <h2 className='card--banner__header--detail--text'>{atributos}</h2>
-                </div>
-              </div>)}
-                {getMarkupBannerInfo()}
+              {/* {linkskubaner && <img src={linkskubaner} alt={marca} className='banner--content__left--image' />} */}
+              {linkskubaner && <img src={linkskubaner} alt={marca} className={`${url === '/spmk' ? 'bannerFull--content__left--image' : 'bannerSmall--content__left--image'}`} />}
             </div>
-          </div>
+            <div className='banner--content__right'>
+              <div className='card--banner'>
+                {atributos && (<div className='card--banner__header'>
+                  <div className='card--banner__header--info'>
+                    <span className='card--banner__header--info--text'>ATRIBUTOS</span>
+                  </div>
+                  <div className='card--banner__header--detail'>
+                    <h2 className='card--banner__header--detail--text'>{atributos}</h2>
+                  </div>
+                </div>)}
+                  {getMarkupBannerInfo()}
+              </div>
+            </div>
           </div>
         </div>
       </div>
