@@ -23,7 +23,7 @@
 }
 
 .card-product--info__title {
-  @apply font-robotoI font-bold text-lg text-gray md:w-[80%] uppercase;
+  @apply font-robotoI font-bold md:text-xss lg:text-lg text-gray md:w-[80%] uppercase;
 }
 
 .card-product--info__alc {

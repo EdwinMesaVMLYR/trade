@@ -17,9 +17,8 @@ function CardItems ({ keymain, tamano, descripcion, grados, eanintermedio, cajas
   })
   return (
     <div className='card-product'>
-      <div className='card-product--logo'>
-        {imgBrand && <img src={imgBrand} alt={descripcion} className='card-product--logo__image' />}
-      </div>
+      {imgBrand && <div className='card-product--logo'><img src={imgBrand} alt={descripcion} className='card-product--logo__image' />
+      </div>}
       <div className='card-product--image hover:from-gray-200 to-transparent bg-gradient-to-t'>
         {imagen && <img src={imagen} alt="img prdducto" className='card-product__image'/>}
       </div>

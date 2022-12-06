@@ -1,5 +1,5 @@
 .banner {
-  @apply pb-[135%] md:bg-bannerBrands bg-cover flex items-center justify-center relative md:pb-[initial] bg-[length:100%_100%]
+  @apply pb-[120%] bg-cover flex items-center justify-center relative md:pb-[initial] bg-[length:100%_100%]
 }
 
 .banner-small {
@@ -19,11 +19,11 @@
 }
 
 .banner--content__image--background {
-  @apply object-cover md:min-h-[32rem]
+  @apply object-cover min-h-[40rem] lg:min-h-[32rem]
 }
 
 .banner--content__body {
-  @apply flex items-center flex-col absolute w-full md:flex-row md:flex-grow;
+  @apply flex items-center flex-col absolute w-full md:flex-row md:flex-grow md:pl-[2rem] md:pr-[2rem] lg:pl-[0] lg:pr-[0]
 }
 
 .banner--content__right {
@@ -31,11 +31,11 @@
 }
 
 .bannerFull--content__left--image {
-  @apply w-full p-[10%] md:p-[5%] md:h-[70vh] md:w-[auto];
+  @apply w-full p-[10%] md:p-[5%] lg:h-[70vh] md:w-[auto];
 }
 
 .bannerSmall--content__left--image {
-  @apply w-full p-[10%] md:p-[2%] md:h-[32rem] md:w-[auto];
+  @apply w-full p-[10%] md:p-[2%] lg:h-[32rem] md:w-[auto];
 }
 
 .banner--content__left {
